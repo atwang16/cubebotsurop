@@ -77,8 +77,7 @@
 # This has nothing to do with the SimpliciTI system and is specific to the Ribosome
 # Robot project, but since it needs to be the same for all components, I define it here.
 # TELL US HOW MANY MOTORS WE'RE GOING TO CONTROL. CAN BE UP TO 6.
---define=NUM_MOTORS=3
-
+--define=NUM_MOTORS=5
 # the number of seconds between updates of our timebase
 --define=Timestep=20E-3
 

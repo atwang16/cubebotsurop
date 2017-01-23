@@ -2,29 +2,31 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
+SHELL = cmd.exe
+
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-C:/Users/RobM/Desktop/Documents/CCSworkspace/Utils/UART_HANDLER.cpp \
-C:/Users/RobM/Desktop/Documents/CCSworkspace/Utils/utils.cpp 
+../utils/UART_HANDLER.cpp \
+../utils/utils.cpp 
 
 OBJS += \
-./Utils/UART_HANDLER.obj \
-./Utils/utils.obj 
+./utils/UART_HANDLER.obj \
+./utils/utils.obj 
 
 CPP_DEPS += \
-./Utils/UART_HANDLER.pp \
-./Utils/utils.pp 
-
-CPP_DEPS__QUOTED += \
-"Utils\UART_HANDLER.pp" \
-"Utils\utils.pp" 
+./utils/UART_HANDLER.d \
+./utils/utils.d 
 
 OBJS__QUOTED += \
-"Utils\UART_HANDLER.obj" \
-"Utils\utils.obj" 
+"utils\UART_HANDLER.obj" \
+"utils\utils.obj" 
+
+CPP_DEPS__QUOTED += \
+"utils\UART_HANDLER.d" \
+"utils\utils.d" 
 
 CPP_SRCS__QUOTED += \
-"C:/Users/RobM/Desktop/Documents/CCSworkspace/Utils/UART_HANDLER.cpp" \
-"C:/Users/RobM/Desktop/Documents/CCSworkspace/Utils/utils.cpp" 
+"../utils/UART_HANDLER.cpp" \
+"../utils/utils.cpp" 
 
 

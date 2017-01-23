@@ -2,23 +2,25 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
+SHELL = cmd.exe
+
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-C:/Users/RobM/Desktop/Documents/CCSL_Stuff/Projects/Ribosomal\ Robotics/SimpliciTI-CCS-1.1.1/Components/mrfi/mrfi.c 
+../Components/mrfi/mrfi.c 
+
+C_DEPS += \
+./Components/mrfi/mrfi.d 
 
 OBJS += \
 ./Components/mrfi/mrfi.obj 
 
-C_DEPS += \
-./Components/mrfi/mrfi.pp 
-
-C_DEPS__QUOTED += \
-"Components\mrfi\mrfi.pp" 
-
 OBJS__QUOTED += \
 "Components\mrfi\mrfi.obj" 
 
+C_DEPS__QUOTED += \
+"Components\mrfi\mrfi.d" 
+
 C_SRCS__QUOTED += \
-"C:/Users/RobM/Desktop/Documents/CCSL_Stuff/Projects/Ribosomal Robotics/SimpliciTI-CCS-1.1.1/Components/mrfi/mrfi.c" 
+"../Components/mrfi/mrfi.c" 
 
 

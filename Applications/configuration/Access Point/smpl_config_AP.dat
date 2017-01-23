@@ -36,7 +36,7 @@
 # Number of connections supported. Each connection supports bi-directional
 # communication.  Access Points and Range Extenders can set this to 0 if they
 # do not host End Device objects.
---define=NUM_CONNECTIONS=8
+--define=NUM_CONNECTIONS=9
 
 # Size of low level queues for sent and received frames. Affects RAM usage
 

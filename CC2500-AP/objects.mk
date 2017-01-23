@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -l"rts430.lib"
+LIBS := -llibc.a
 
