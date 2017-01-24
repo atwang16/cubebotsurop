@@ -115,7 +115,7 @@ __interrupt void TIMERA0_ISR(void)
 //	    drift_rate = (time - clock_check) / time;
 	    clock_check += Timestep;
 	    clock_check2 += Timestep;
-	    time_correction = (time - clock_check) * 3.0;
+	    time_correction = (time - clock_check) * 2.5;
 	    if(abs(time_correction) > TIME_CORR_THRESHOLD) {
 	        time_correction = 1000000 * TIME_CORR_THRESHOLD * ((time_correction > 0) ? 1 : -1);
 	    }

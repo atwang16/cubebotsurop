@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker PC v16.9.0                     
 ******************************************************************************
->> Linked Tue Jan 24 15:17:01 2017
+>> Linked Tue Jan 24 15:43:30 2017
 
 OUTPUT FILE NAME:   <cubebots.out>
-ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 0000d3c4
+ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 0000d3e6
 
 
 MEMORY CONFIGURATION
@@ -14,12 +14,12 @@ MEMORY CONFIGURATION
   SFR                   00000000   00000010  00000000  00000010  RWIX
   PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
   PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
-  RAM                   00000200   00000400  00000288  00000178  RWIX
+  RAM                   00000200   00000400  00000290  00000170  RWIX
   INFOD                 00001000   00000040  00000000  00000040  RWIX
   INFOC                 00001040   00000040  00000000  00000040  RWIX
   INFOB                 00001080   00000040  00000000  00000040  RWIX
   INFOA                 000010c0   00000040  00000000  00000040  RWIX
-  FLASH                 00008000   00007fde  0000582b  000027b3  RWIX
+  FLASH                 00008000   00007fde  00005859  00002785  RWIX
   BSLSIGNATURE          0000ffde   00000002  00000002  00000000  RWIX  ffff 
   INT00                 0000ffe0   00000002  00000000  00000002  RWIX
   INT01                 0000ffe2   00000002  00000000  00000002  RWIX
@@ -59,223 +59,221 @@ section   page    origin      length       input sections
                   000003b5    00000001     --HOLE--
                   000003b6    00000002     nwk_link.obj (.bss:sServiceLinkID)
 
-.data      0    000003b8    00000080     UNINITIALIZED
-                  000003b8    0000002a     main_manyEDs_clock.obj (.data)
-                  000003e2    00000026     nwk.obj (.data:sPersistInfo)
-                  00000408    00000009     mrfi.obj (.data)
-                  00000411    00000001     bsp.obj (.data)
-                  00000412    00000008     nwk_frame.obj (.data)
-                  0000041a    00000007     nwk_join.obj (.data)
-                  00000421    00000001     nwk_api.obj (.data)
-                  00000422    00000007     nwk_link.obj (.data)
-                  00000429    00000004     main_manyEDs_clock.obj (.data:lAddr)
-                  0000042d    00000001     nwk_globals.obj (.data)
-                  0000042e    00000004     mrfi.obj (.data:mrfiRxFilterAddr)
-                  00000432    00000003     nwk_mgmt.obj (.data)
-                  00000435    00000001     nwk_ping.obj (.data)
-                  00000436    00000002     rts430_eabi.lib : errno.obj (.data)
+.data      0    000003b8    00000088     UNINITIALIZED
+                  000003b8    00000032     main_manyEDs_clock.obj (.data)
+                  000003ea    00000026     nwk.obj (.data:sPersistInfo)
+                  00000410    00000009     mrfi.obj (.data)
+                  00000419    00000001     bsp.obj (.data)
+                  0000041a    00000008     nwk_frame.obj (.data)
+                  00000422    00000007     nwk_join.obj (.data)
+                  00000429    00000001     nwk_api.obj (.data)
+                  0000042a    00000007     nwk_link.obj (.data)
+                  00000431    00000004     main_manyEDs_clock.obj (.data:lAddr)
+                  00000435    00000001     nwk_globals.obj (.data)
+                  00000436    00000004     mrfi.obj (.data:mrfiRxFilterAddr)
+                  0000043a    00000003     nwk_mgmt.obj (.data)
+                  0000043d    00000001     nwk_ping.obj (.data)
+                  0000043e    00000002     rts430_eabi.lib : errno.obj (.data)
 
 .stack     0    000005b0    00000050     UNINITIALIZED
                   000005b0    00000002     rts430_eabi.lib : boot.obj (.stack)
                   000005b2    0000004e     --HOLE--
 
-.text      0    00008000    00005642     
+.text      0    00008000    0000566e     
                   00008000    00000d8e     rts430_eabi.lib : k_rem_pio2.obj (.text:__kernel_rem_pio2)
                   00008d8e    00000d2c                     : s_sinf.obj (.text:sinf)
                   00009aba    000002e8                     : addd.obj (.text:__mspabi_addd)
                   00009da2    00000286                     : frcmpyd.obj (.text:__TI_frcmpyd)
                   0000a028    0000026e                     : mpyd.obj (.text:__mspabi_mpyd)
                   0000a296    00000260                     : frcaddd.obj (.text:__TI_frcaddd)
-                  0000a4f6    000001d0                     : s_floor.obj (.text:floor)
-                  0000a6c6    000001c6     mrfi.obj (.text:MRFI_Init)
-                  0000a88c    000001b6     main_manyEDs_clock.obj (.text:TIMERA0_ISR)
-                  0000aa42    000001a4     rts430_eabi.lib : s_scalbn.obj (.text:scalbn)
-                  0000abe6    00000198     nwk_link.obj (.text:smpl_send_link_reply)
-                  0000ad7e    0000018e     main_manyEDs_clock.obj (.text:main)
-                  0000af0c    00000158     nwk_link.obj (.text:nwk_link)
-                  0000b064    00000132     rts430_eabi.lib : fs_add.obj (.text)
-                  0000b196    0000012e     nwk_QMgmt.obj (.text:nwk_QfindOldest)
-                  0000b2c4    00000102     mrfi.obj (.text:MRFI_Transmit)
-                  0000b3c6    000000fc     main_manyEDs_clock.obj (.text:processMessage)
-                  0000b4c2    000000f2     nwk_join.obj (.text:nwk_join)
-                  0000b5b4    000000dc     rts430_eabi.lib : cmpd.obj (.text:__mspabi_cmpd)
-                  0000b690    000000da     mrfi.obj (.text:Mrfi_SyncPinRxIsr)
-                  0000b76a    000000d8     nwk.obj (.text:nwk_allocateLocalRxPort)
-                  0000b842    000000d2     UART_HANDLER.obj (.text:__sti___16_UART_HANDLER_cpp_3daaade3)
-                  0000b914    000000c4     rts430_eabi.lib : fs_mpy.obj (.text)
-                  0000b9d8    000000be                     : renormd.obj (.text:__TI_renormd)
-                  0000ba96    000000b2     nwk_frame.obj (.text:dispatchFrame)
-                  0000bb48    000000b2     nwk_frame.obj (.text:nwk_retrieveFrame)
-                  0000bbfa    000000b0     nwk_api.obj (.text:SMPL_Ioctl)
-                  0000bcaa    000000ac     rts430_eabi.lib : fltlid.obj (.text:__mspabi_fltlid)
-                  0000bd56    0000009e     nwk_frame.obj (.text:nwk_buildFrame)
-                  0000bdf4    0000009c     rts430_eabi.lib : fs_div.obj (.text)
-                  0000be90    0000008c                     : cvtdf.obj (.text:__mspabi_cvtdf)
-                  0000bf1c    00000086     nwk.obj (.text:nwk_nwkInit)
-                  0000bfa2    00000086     mrfi.obj (.text:spiBurstFifoAccess)
-                  0000c028    00000082     nwk_QMgmt.obj (.text:nwk_QfindSlot)
-                  0000c0aa    0000007e     nwk_api.obj (.text:SMPL_SendOpt)
-                  0000c128    0000007c     rts430_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  0000c1a4    00000078     nwk_ioctl.obj (.text:nwk_radioControl)
-                  0000c21c    00000072     rts430_eabi.lib : cvtfd.obj (.text:__mspabi_cvtfd)
-                  0000c28e    00000072                     : fixdli.obj (.text:__mspabi_fixdli)
-                  0000c300    0000006e                     : autoinit.obj (.text:_auto_init)
-                  0000c36e    00000068     nwk.obj (.text:nwk_isConnectionValid)
-                  0000c3d6    00000068     rts430_eabi.lib : fs_toi.obj (.text)
-                  0000c43e    0000005c                     : lsr32.obj (.text:l_lsr_const)
-                  0000c49a    0000005a                     : cpy_tbl.obj (.text:copy_in)
-                  0000c4f4    00000058                     : div32u.obj (.text)
-                  0000c54c    00000054     mrfi.obj (.text:MRFI_WakeUp)
-                  0000c5a0    00000054     nwk_ioctl.obj (.text:nwk_rawSend)
-                  0000c5f4    00000050     main_manyEDs_clock.obj (.text:cap)
-                  0000c644    00000050     nwk.obj (.text:nwk_getNextConnection)
-                  0000c694    0000004c     nwk_api.obj (.text:SMPL_Receive)
-                  0000c6e0    0000004c     rts430_eabi.lib : lsr16.obj (.text)
-                  0000c72c    0000004a     mrfi.obj (.text:mrfiSpiCmdStrobe)
-                  0000c776    0000004a     rts430_eabi.lib : fs_cmp.obj (.text)
-                  0000c7c0    00000048     main_manyEDs_clock.obj (.text:linkTo)
-                  0000c808    00000046     mrfi.obj (.text:MRFI_RxAddrIsFiltered)
-                  0000c84e    00000046     nwk.obj (.text:nwk_isLinkDuplicate)
-                  0000c894    00000046     rts430_eabi.lib : fs_tou.obj (.text)
-                  0000c8da    00000046     nwk_ping.obj (.text:smpl_send_ping_reply)
-                  0000c920    00000044     mrfi.obj (.text:MRFI_Rssi)
-                  0000c964    00000044     mrfi.obj (.text:spiRegAccess)
-                  0000c9a8    00000040     mrfi.obj (.text:MRFI_ReplyDelay)
-                  0000c9e8    0000003e     nwk.obj (.text:initializeConnection)
-                  0000ca26    0000003e     rts430_eabi.lib : asr32.obj (.text:l_asr_const)
-                  0000ca64    0000003e                     : lsl32.obj (.text:l_lsl_const)
-                  0000caa2    0000003c     nwk.obj (.text:nwk_putNumObjectIntoMsg)
-                  0000cade    0000003a     UART_HANDLER.obj (.text:_Z13USCIAB0TX_ISRv)
-                  0000cb18    0000003a     nwk.obj (.text:nwk_isValidReply)
-                  0000cb52    0000003a     nwk_mgmt.obj (.text:nwk_processMgmt)
-                  0000cb8c    00000036     rts430_eabi.lib : fs_itof.obj (.text)
-                  0000cbc2    00000034     mrfi.obj (.text:MRFI_SetRFPwr)
-                  0000cbf6    00000034     mrfi.obj (.text:MRFI_SetRxAddrFilter)
-                  0000cc2a    00000034     nwk_api.obj (.text:SMPL_Init)
-                  0000cc5e    00000034     mrfi.obj (.text:mrfiSpiInit)
-                  0000cc92    00000034     nwk_QMgmt.obj (.text:nwk_QadjustOrder)
-                  0000ccc6    00000034     nwk_ioctl.obj (.text:nwk_deviceAddress)
-                  0000ccfa    00000032     mrfi.obj (.text:MRFI_SetLogicalChannel)
-                  0000cd2c    00000032     mrfi.obj (.text:Mrfi_DelayUsecSem)
-                  0000cd5e    00000032     nwk.obj (.text:nwk_getConnInfo)
-                  0000cd90    00000032     nwk_link.obj (.text:nwk_linkInit)
-                  0000cdc2    00000030     nwk.obj (.text:map_lid2idx)
-                  0000cdf2    00000030     nwk_ioctl.obj (.text:nwk_rawReceive)
-                  0000ce22    00000030     nwk_frame.obj (.text:nwk_sendFrame)
-                  0000ce52    0000002e     mrfi.obj (.text:Mrfi_CalculateRssi)
-                  0000ce80    0000002e     UART_HANDLER.obj (.text:_Z13USCIAB0RX_ISRv)
-                  0000ceae    0000002e     rts430_eabi.lib : subd.obj (.text:__mspabi_subd)
-                  0000cedc    0000002e                     : s_copysign.obj (.text:copysign)
-                  0000cf0a    0000002c     mrfi.obj (.text:Mrfi_DelayUsec)
-                  0000cf36    0000002c     mrfi.obj (.text:Mrfi_RxModeOff)
-                  0000cf62    0000002c     rts430_eabi.lib : asr16.obj (.text)
-                  0000cf8e    0000002c                     : div16s.obj (.text)
-                  0000cfba    0000002c                     : lsl16.obj (.text)
-                  0000cfe6    0000002a                     : negd.obj (.text:__mspabi_negd)
-                  0000d010    0000002a     nwk.obj (.text:nwk_checkConnInfo)
-                  0000d03a    00000028     main_manyEDs_clock.obj (.text:InitTimer)
-                  0000d062    00000028     nwk_ping.obj (.text:nwk_processPing)
-                  0000d08a    00000026     mrfi.obj (.text:MRFI_Sleep)
-                  0000d0b0    00000026     mrfi.obj (.text:Mrfi_RandomBackoffDelay)
-                  0000d0d6    00000026     nwk_ioctl.obj (.text:nwk_connectionControl)
-                  0000d0fc    00000026     nwk_globals.obj (.text:nwk_globalsInit)
-                  0000d122    00000026     nwk_join.obj (.text:nwk_joinInit)
-                  0000d148    00000026     nwk_link.obj (.text:nwk_processLink)
-                  0000d16e    00000026     rts430_eabi.lib : mult32.obj (.text)
-                  0000d194    00000022     mrfi.obj (.text:MRFI_EnableRxAddrFilter)
-                  0000d1b6    00000022     mrfi.obj (.text:MRFI_RxOn)
-                  0000d1d8    00000022     rts430_eabi.lib : memcmp.obj (.text:memcmp)
-                  0000d1fa    00000020     bsp.obj (.text:BSP_Init)
-                  0000d21a    00000020     bsp.obj (.text:BSP_InitBoard)
-                  0000d23a    00000020     nwk_frame.obj (.text:MRFI_RxCompleteISR)
-                  0000d25a    00000020     mrfi.obj (.text:MRFI_RxIdle)
-                  0000d27a    00000020     nwk_link.obj (.text:handleLinkRequest)
-                  0000d29a    00000020     rts430_eabi.lib : memmov.obj (.text:memmove)
-                  0000d2ba    00000020     nwk_frame.obj (.text:nwk_frameInit)
-                  0000d2da    00000020     nwk_join.obj (.text:nwk_processJoin)
-                  0000d2fa    0000001e     bsp.obj (.text:BSP_Delay)
-                  0000d318    0000001e     mrfi.obj (.text:mrfiSpiReadReg)
-                  0000d336    0000001e     nwk_QMgmt.obj (.text:nwk_QInit)
-                  0000d354    0000001e     main_manyEDs_clock.obj (.text:sCB)
-                  0000d372    0000001c     mrfi.obj (.text:MRFI_GpioIsr)
-                  0000d38e    0000001c     nwk_globals.obj (.text:nwk_setMyAddress)
-                  0000d3aa    0000001a     mrfi.obj (.text:BSP_GpioPort1Isr)
-                  0000d3c4    0000001a     rts430_eabi.lib : boot_special.obj (.text:_c_int00_noargs_noexit)
-                  0000d3de    0000001a     mrfi.obj (.text:mrfiSpiWriteReg)
-                  0000d3f8    00000018     mrfi.obj (.text:MRFI_DelayMs)
-                  0000d410    00000016     mrfi.obj (.text:MRFI_RandomByte)
-                  0000d426    00000016     mrfi.obj (.text:Mrfi_RxModeOn)
-                  0000d43c    00000016     rts430_eabi.lib : div16u.obj (.text)
-                  0000d452    00000014                     : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
-                  0000d466    00000014     nwk_api.obj (.text:ioctlPreInitAccessIsOK)
-                  0000d47a    00000014     rts430_eabi.lib : memset.obj (.text:memset)
-                  0000d48e    00000014                     : mult16.obj (.text)
-                  0000d4a2    00000014     main_manyEDs_clock.obj (.text:toggleLED)
-                  0000d4b6    00000012     bsp.obj (.text:BSP_InitLeds)
-                  0000d4c8    00000012     rts430_eabi.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
-                  0000d4da    00000012                     : lsr32.obj (.text:l_lsr)
-                  0000d4ec    00000012                     : memcpy.obj (.text:memcpy)
-                  0000d4fe    00000012     nwk_globals.obj (.text:nwk_getMyAddress)
-                  0000d510    00000012     nwk_link.obj (.text:nwk_setLinkToken)
-                  0000d522    00000010     rts430_eabi.lib : asr32.obj (.text:l_asr)
-                  0000d532    00000010                     : lsl32.obj (.text:l_lsl)
-                  0000d542    00000010                     : epilog.obj (.text)
-                  0000d552    0000000e     mrfi.obj (.text:MRFI_Receive)
-                  0000d560    0000000e     mrfi.obj (.text:mrfiSpiWriteTxFifo)
-                  0000d56e    0000000e     nwk.obj (.text:nwk_getNumObjectFromMsg)
-                  0000d57c    0000000e     nwk_globals.obj (.text:nwk_setAPAddress)
-                  0000d58a    0000000c     mrfi.obj (.text:MRFI_PostKillSem)
-                  0000d596    0000000c     nwk_ping.obj (.text:handlePingRequest)
-                  0000d5a2    0000000c     mrfi.obj (.text:mrfiSpiReadRxFifo)
-                  0000d5ae    0000000a     bsp.obj (.text:BSP_InitButtons)
-                  0000d5b8    0000000a     bsp.obj (.text:BSP_InitDrivers)
-                  0000d5c2    0000000a     utils.obj (.text:_Z11Disable_Intv)
-                  0000d5cc    0000000a     bsp.obj (.text:_system_pre_init)
-                  0000d5d6    0000000a     nwk_mgmt.obj (.text:nwk_mgmtInit)
-                  0000d5e0    0000000a     nwk_ping.obj (.text:nwk_pingInit)
-                  0000d5ea    0000000a     rts430_eabi.lib : fs_neg.obj (.text)
-                  0000d5f4    00000008     nwk_api.obj (.text:SMPL_Send)
-                  0000d5fc    00000008     rts430_eabi.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
-                  0000d604    00000006     mrfi.obj (.text:MRFI_GetRadioState)
-                  0000d60a    00000006     utils.obj (.text:_Z11Restore_Intt)
-                  0000d610    00000006     rts430_eabi.lib : exit.obj (.text:abort)
-                  0000d616    00000006     nwk.obj (.text:nwk_freeConnection)
-                  0000d61c    00000006     nwk_globals.obj (.text:nwk_getBCastAddress)
-                  0000d622    00000006     nwk_globals.obj (.text:nwk_getFWVersion)
-                  0000d628    00000006     nwk_frame.obj (.text:nwk_getMyRxType)
-                  0000d62e    00000006     nwk_globals.obj (.text:nwk_getProtocolVersion)
-                  0000d634    00000004     nwk_freq.obj (.text:nwk_processFreq)
-                  0000d638    00000004     nwk_security.obj (.text:nwk_processSecurity)
-                  0000d63c    00000002     rts430_eabi.lib : startup.obj (.text:_system_post_cinit)
-                  0000d63e    00000002     nwk_freq.obj (.text:nwk_freqInit)
-                  0000d640    00000002     nwk_security.obj (.text:nwk_securityInit)
+                  0000a4f6    00000228     main_manyEDs_clock.obj (.text:TIMERA0_ISR)
+                  0000a71e    000001d0     rts430_eabi.lib : s_floor.obj (.text:floor)
+                  0000a8ee    000001c6     mrfi.obj (.text:MRFI_Init)
+                  0000aab4    000001a4     rts430_eabi.lib : s_scalbn.obj (.text:scalbn)
+                  0000ac58    00000198     nwk_link.obj (.text:smpl_send_link_reply)
+                  0000adf0    0000018e     main_manyEDs_clock.obj (.text:main)
+                  0000af7e    00000158     nwk_link.obj (.text:nwk_link)
+                  0000b0d6    00000132     rts430_eabi.lib : fs_add.obj (.text)
+                  0000b208    0000012e     nwk_QMgmt.obj (.text:nwk_QfindOldest)
+                  0000b336    00000102     mrfi.obj (.text:MRFI_Transmit)
+                  0000b438    000000fc     main_manyEDs_clock.obj (.text:processMessage)
+                  0000b534    000000f2     nwk_join.obj (.text:nwk_join)
+                  0000b626    000000dc     rts430_eabi.lib : cmpd.obj (.text:__mspabi_cmpd)
+                  0000b702    000000da     mrfi.obj (.text:Mrfi_SyncPinRxIsr)
+                  0000b7dc    000000d8     nwk.obj (.text:nwk_allocateLocalRxPort)
+                  0000b8b4    000000d2     UART_HANDLER.obj (.text:__sti___16_UART_HANDLER_cpp_3daaade3)
+                  0000b986    000000c4     rts430_eabi.lib : fs_mpy.obj (.text)
+                  0000ba4a    000000be                     : renormd.obj (.text:__TI_renormd)
+                  0000bb08    000000b2     nwk_frame.obj (.text:dispatchFrame)
+                  0000bbba    000000b2     nwk_frame.obj (.text:nwk_retrieveFrame)
+                  0000bc6c    000000b0     nwk_api.obj (.text:SMPL_Ioctl)
+                  0000bd1c    000000ac     rts430_eabi.lib : fltlid.obj (.text:__mspabi_fltlid)
+                  0000bdc8    0000009e     nwk_frame.obj (.text:nwk_buildFrame)
+                  0000be66    0000009c     rts430_eabi.lib : fs_div.obj (.text)
+                  0000bf02    0000008c                     : cvtdf.obj (.text:__mspabi_cvtdf)
+                  0000bf8e    00000086     nwk.obj (.text:nwk_nwkInit)
+                  0000c014    00000086     mrfi.obj (.text:spiBurstFifoAccess)
+                  0000c09a    00000082     nwk_QMgmt.obj (.text:nwk_QfindSlot)
+                  0000c11c    0000007e     nwk_api.obj (.text:SMPL_SendOpt)
+                  0000c19a    0000007c     rts430_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  0000c216    00000078     nwk_ioctl.obj (.text:nwk_radioControl)
+                  0000c28e    00000072     rts430_eabi.lib : cvtfd.obj (.text:__mspabi_cvtfd)
+                  0000c300    00000072                     : fixdli.obj (.text:__mspabi_fixdli)
+                  0000c372    0000006e                     : autoinit.obj (.text:_auto_init)
+                  0000c3e0    00000068     nwk.obj (.text:nwk_isConnectionValid)
+                  0000c448    00000068     rts430_eabi.lib : fs_toi.obj (.text)
+                  0000c4b0    0000005c                     : lsr32.obj (.text:l_lsr_const)
+                  0000c50c    0000005a                     : cpy_tbl.obj (.text:copy_in)
+                  0000c566    00000058                     : div32u.obj (.text)
+                  0000c5be    00000054     mrfi.obj (.text:MRFI_WakeUp)
+                  0000c612    00000054     nwk_ioctl.obj (.text:nwk_rawSend)
+                  0000c666    00000050     nwk.obj (.text:nwk_getNextConnection)
+                  0000c6b6    0000004c     nwk_api.obj (.text:SMPL_Receive)
+                  0000c702    0000004c     rts430_eabi.lib : lsr16.obj (.text)
+                  0000c74e    0000004a     mrfi.obj (.text:mrfiSpiCmdStrobe)
+                  0000c798    0000004a     rts430_eabi.lib : fs_cmp.obj (.text)
+                  0000c7e2    00000048     main_manyEDs_clock.obj (.text:linkTo)
+                  0000c82a    00000046     mrfi.obj (.text:MRFI_RxAddrIsFiltered)
+                  0000c870    00000046     nwk.obj (.text:nwk_isLinkDuplicate)
+                  0000c8b6    00000046     rts430_eabi.lib : fs_tou.obj (.text)
+                  0000c8fc    00000046     nwk_ping.obj (.text:smpl_send_ping_reply)
+                  0000c942    00000044     mrfi.obj (.text:MRFI_Rssi)
+                  0000c986    00000044     mrfi.obj (.text:spiRegAccess)
+                  0000c9ca    00000040     mrfi.obj (.text:MRFI_ReplyDelay)
+                  0000ca0a    0000003e     nwk.obj (.text:initializeConnection)
+                  0000ca48    0000003e     rts430_eabi.lib : asr32.obj (.text:l_asr_const)
+                  0000ca86    0000003e                     : lsl32.obj (.text:l_lsl_const)
+                  0000cac4    0000003c     nwk.obj (.text:nwk_putNumObjectIntoMsg)
+                  0000cb00    0000003a     UART_HANDLER.obj (.text:_Z13USCIAB0TX_ISRv)
+                  0000cb3a    0000003a     nwk.obj (.text:nwk_isValidReply)
+                  0000cb74    0000003a     nwk_mgmt.obj (.text:nwk_processMgmt)
+                  0000cbae    00000036     rts430_eabi.lib : fs_itof.obj (.text)
+                  0000cbe4    00000034     mrfi.obj (.text:MRFI_SetRFPwr)
+                  0000cc18    00000034     mrfi.obj (.text:MRFI_SetRxAddrFilter)
+                  0000cc4c    00000034     nwk_api.obj (.text:SMPL_Init)
+                  0000cc80    00000034     mrfi.obj (.text:mrfiSpiInit)
+                  0000ccb4    00000034     nwk_QMgmt.obj (.text:nwk_QadjustOrder)
+                  0000cce8    00000034     nwk_ioctl.obj (.text:nwk_deviceAddress)
+                  0000cd1c    00000032     mrfi.obj (.text:MRFI_SetLogicalChannel)
+                  0000cd4e    00000032     mrfi.obj (.text:Mrfi_DelayUsecSem)
+                  0000cd80    00000032     nwk.obj (.text:nwk_getConnInfo)
+                  0000cdb2    00000032     nwk_link.obj (.text:nwk_linkInit)
+                  0000cde4    00000030     nwk.obj (.text:map_lid2idx)
+                  0000ce14    00000030     nwk_ioctl.obj (.text:nwk_rawReceive)
+                  0000ce44    00000030     nwk_frame.obj (.text:nwk_sendFrame)
+                  0000ce74    0000002e     mrfi.obj (.text:Mrfi_CalculateRssi)
+                  0000cea2    0000002e     UART_HANDLER.obj (.text:_Z13USCIAB0RX_ISRv)
+                  0000ced0    0000002e     rts430_eabi.lib : subd.obj (.text:__mspabi_subd)
+                  0000cefe    0000002e                     : s_copysign.obj (.text:copysign)
+                  0000cf2c    0000002c     mrfi.obj (.text:Mrfi_DelayUsec)
+                  0000cf58    0000002c     mrfi.obj (.text:Mrfi_RxModeOff)
+                  0000cf84    0000002c     rts430_eabi.lib : asr16.obj (.text)
+                  0000cfb0    0000002c                     : div16s.obj (.text)
+                  0000cfdc    0000002c                     : lsl16.obj (.text)
+                  0000d008    0000002a                     : negd.obj (.text:__mspabi_negd)
+                  0000d032    0000002a     nwk.obj (.text:nwk_checkConnInfo)
+                  0000d05c    00000028     main_manyEDs_clock.obj (.text:InitTimer)
+                  0000d084    00000028     nwk_ping.obj (.text:nwk_processPing)
+                  0000d0ac    00000026     mrfi.obj (.text:MRFI_Sleep)
+                  0000d0d2    00000026     mrfi.obj (.text:Mrfi_RandomBackoffDelay)
+                  0000d0f8    00000026     nwk_ioctl.obj (.text:nwk_connectionControl)
+                  0000d11e    00000026     nwk_globals.obj (.text:nwk_globalsInit)
+                  0000d144    00000026     nwk_join.obj (.text:nwk_joinInit)
+                  0000d16a    00000026     nwk_link.obj (.text:nwk_processLink)
+                  0000d190    00000026     rts430_eabi.lib : mult32.obj (.text)
+                  0000d1b6    00000022     mrfi.obj (.text:MRFI_EnableRxAddrFilter)
+                  0000d1d8    00000022     mrfi.obj (.text:MRFI_RxOn)
+                  0000d1fa    00000022     rts430_eabi.lib : memcmp.obj (.text:memcmp)
+                  0000d21c    00000020     bsp.obj (.text:BSP_Init)
+                  0000d23c    00000020     bsp.obj (.text:BSP_InitBoard)
+                  0000d25c    00000020     nwk_frame.obj (.text:MRFI_RxCompleteISR)
+                  0000d27c    00000020     mrfi.obj (.text:MRFI_RxIdle)
+                  0000d29c    00000020     nwk_link.obj (.text:handleLinkRequest)
+                  0000d2bc    00000020     rts430_eabi.lib : memmov.obj (.text:memmove)
+                  0000d2dc    00000020     nwk_frame.obj (.text:nwk_frameInit)
+                  0000d2fc    00000020     nwk_join.obj (.text:nwk_processJoin)
+                  0000d31c    0000001e     bsp.obj (.text:BSP_Delay)
+                  0000d33a    0000001e     mrfi.obj (.text:mrfiSpiReadReg)
+                  0000d358    0000001e     nwk_QMgmt.obj (.text:nwk_QInit)
+                  0000d376    0000001e     main_manyEDs_clock.obj (.text:sCB)
+                  0000d394    0000001c     mrfi.obj (.text:MRFI_GpioIsr)
+                  0000d3b0    0000001c     nwk_globals.obj (.text:nwk_setMyAddress)
+                  0000d3cc    0000001a     mrfi.obj (.text:BSP_GpioPort1Isr)
+                  0000d3e6    0000001a     rts430_eabi.lib : boot_special.obj (.text:_c_int00_noargs_noexit)
+                  0000d400    0000001a     mrfi.obj (.text:mrfiSpiWriteReg)
+                  0000d41a    00000018     mrfi.obj (.text:MRFI_DelayMs)
+                  0000d432    00000016     mrfi.obj (.text:MRFI_RandomByte)
+                  0000d448    00000016     mrfi.obj (.text:Mrfi_RxModeOn)
+                  0000d45e    00000016     rts430_eabi.lib : div16u.obj (.text)
+                  0000d474    00000014                     : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  0000d488    00000014     nwk_api.obj (.text:ioctlPreInitAccessIsOK)
+                  0000d49c    00000014     rts430_eabi.lib : memset.obj (.text:memset)
+                  0000d4b0    00000014                     : mult16.obj (.text)
+                  0000d4c4    00000014     main_manyEDs_clock.obj (.text:toggleLED)
+                  0000d4d8    00000012     bsp.obj (.text:BSP_InitLeds)
+                  0000d4ea    00000012     rts430_eabi.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  0000d4fc    00000012                     : lsr32.obj (.text:l_lsr)
+                  0000d50e    00000012                     : memcpy.obj (.text:memcpy)
+                  0000d520    00000012     nwk_globals.obj (.text:nwk_getMyAddress)
+                  0000d532    00000012     nwk_link.obj (.text:nwk_setLinkToken)
+                  0000d544    00000010     rts430_eabi.lib : asr32.obj (.text:l_asr)
+                  0000d554    00000010                     : lsl32.obj (.text:l_lsl)
+                  0000d564    00000010                     : epilog.obj (.text)
+                  0000d574    0000000e     mrfi.obj (.text:MRFI_Receive)
+                  0000d582    0000000e     mrfi.obj (.text:mrfiSpiWriteTxFifo)
+                  0000d590    0000000e     nwk.obj (.text:nwk_getNumObjectFromMsg)
+                  0000d59e    0000000e     nwk_globals.obj (.text:nwk_setAPAddress)
+                  0000d5ac    0000000c     mrfi.obj (.text:MRFI_PostKillSem)
+                  0000d5b8    0000000c     nwk_ping.obj (.text:handlePingRequest)
+                  0000d5c4    0000000c     mrfi.obj (.text:mrfiSpiReadRxFifo)
+                  0000d5d0    0000000a     bsp.obj (.text:BSP_InitButtons)
+                  0000d5da    0000000a     bsp.obj (.text:BSP_InitDrivers)
+                  0000d5e4    0000000a     utils.obj (.text:_Z11Disable_Intv)
+                  0000d5ee    0000000a     bsp.obj (.text:_system_pre_init)
+                  0000d5f8    0000000a     rts430_eabi.lib : abs.obj (.text:abs)
+                  0000d602    0000000a     nwk_mgmt.obj (.text:nwk_mgmtInit)
+                  0000d60c    0000000a     nwk_ping.obj (.text:nwk_pingInit)
+                  0000d616    0000000a     rts430_eabi.lib : fs_neg.obj (.text)
+                  0000d620    00000008     nwk_api.obj (.text:SMPL_Send)
+                  0000d628    00000008     rts430_eabi.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
+                  0000d630    00000006     mrfi.obj (.text:MRFI_GetRadioState)
+                  0000d636    00000006     utils.obj (.text:_Z11Restore_Intt)
+                  0000d63c    00000006     rts430_eabi.lib : exit.obj (.text:abort)
+                  0000d642    00000006     nwk.obj (.text:nwk_freeConnection)
+                  0000d648    00000006     nwk_globals.obj (.text:nwk_getBCastAddress)
+                  0000d64e    00000006     nwk_globals.obj (.text:nwk_getFWVersion)
+                  0000d654    00000006     nwk_frame.obj (.text:nwk_getMyRxType)
+                  0000d65a    00000006     nwk_globals.obj (.text:nwk_getProtocolVersion)
+                  0000d660    00000004     nwk_freq.obj (.text:nwk_processFreq)
+                  0000d664    00000004     nwk_security.obj (.text:nwk_processSecurity)
+                  0000d668    00000002     rts430_eabi.lib : startup.obj (.text:_system_post_cinit)
+                  0000d66a    00000002     nwk_freq.obj (.text:nwk_freqInit)
+                  0000d66c    00000002     nwk_security.obj (.text:nwk_securityInit)
 
 .binit     0    00008000    00000000     
 
-.const     0    0000d642    000001b1     
-                  0000d642    00000108     rts430_eabi.lib : k_rem_pio2.obj (.const:ipio2)
-                  0000d74a    00000040                     : k_rem_pio2.obj (.const:PIo2)
-                  0000d78a    0000003c     mrfi.obj (.const:mrfiRadioCfg)
-                  0000d7c6    0000000c     nwk_frame.obj (.const:func)
-                  0000d7d2    00000008     rts430_eabi.lib : k_rem_pio2.obj (.const:init_jk)
-                  0000d7da    00000005     nwk_globals.obj (.const:sVersionInfo)
-                  0000d7df    00000001     --HOLE-- [fill = 0]
-                  0000d7e0    00000004     mrfi.obj (.const:.string:mrfiBroadcastAddr)
-                  0000d7e4    00000004     mrfi.obj (.const:.string:mrfiLogicalChanTable)
-                  0000d7e8    00000004     main_manyEDs_clock.obj (.const)
-                  0000d7ec    00000004     nwk_globals.obj (.const:sMyROMAddress)
-                  0000d7f0    00000003     mrfi.obj (.const:.string:mrfiRFPowerTable)
+.const     0    0000d66e    000001ad     
+                  0000d66e    00000108     rts430_eabi.lib : k_rem_pio2.obj (.const:ipio2)
+                  0000d776    00000040                     : k_rem_pio2.obj (.const:PIo2)
+                  0000d7b6    0000003c     mrfi.obj (.const:mrfiRadioCfg)
+                  0000d7f2    0000000c     nwk_frame.obj (.const:func)
+                  0000d7fe    00000008     rts430_eabi.lib : k_rem_pio2.obj (.const:init_jk)
+                  0000d806    00000005     nwk_globals.obj (.const:sVersionInfo)
+                  0000d80b    00000001     --HOLE-- [fill = 0]
+                  0000d80c    00000004     mrfi.obj (.const:.string:mrfiBroadcastAddr)
+                  0000d810    00000004     mrfi.obj (.const:.string:mrfiLogicalChanTable)
+                  0000d814    00000004     nwk_globals.obj (.const:sMyROMAddress)
+                  0000d818    00000003     mrfi.obj (.const:.string:mrfiRFPowerTable)
 
 .init_array 
-*          0    0000d7f4    00000002     
-                  0000d7f4    00000002     UART_HANDLER.obj (.init_array)
+*          0    0000d81c    00000002     
+                  0000d81c    00000002     UART_HANDLER.obj (.init_array)
 
-.cinit     0    0000d7f6    00000036     
-                  0000d7f6    00000023     (.cinit..data.load) [load image, compression = lzss]
-                  0000d819    00000001     --HOLE-- [fill = 0]
-                  0000d81a    00000006     (__TI_handler_table)
-                  0000d820    00000004     (.cinit..bss.load) [load image, compression = zero_init]
-                  0000d824    00000008     (__TI_cinit_table)
+.cinit     0    0000d81e    0000003c     
+                  0000d81e    0000002a     (.cinit..data.load) [load image, compression = lzss]
+                  0000d848    00000006     (__TI_handler_table)
+                  0000d84e    00000004     (.cinit..bss.load) [load image, compression = zero_init]
+                  0000d852    00000008     (__TI_cinit_table)
 
 $fill000   0    0000ffde    00000002     
                   0000ffde    00000002     --HOLE-- [fill = ffff]
@@ -323,9 +321,9 @@ MODULE SUMMARY
        Module                     code    ro data   rw data
        ------                     ----    -------   -------
     .\Applications\application\End Device\
-       main_manyEDs_clock.obj     1330    6         81     
+       main_manyEDs_clock.obj     1364    2         89     
     +--+--------------------------+-------+---------+---------+
-       Total:                     1330    6         81     
+       Total:                     1364    2         89     
                                                            
     .\Components\bsp\
        bsp.obj                    142     0         1      
@@ -410,6 +408,7 @@ MODULE SUMMARY
        copy_decompress_none.obj   18      0         0      
        memcpy.obj                 18      0         0      
        epilog.obj                 16      0         0      
+       abs.obj                    10      0         0      
        fs_neg.obj                 10      0         0      
        isr_trap.obj               8       0         0      
        exit.obj                   6       0         0      
@@ -424,24 +423,24 @@ MODULE SUMMARY
        int14.obj                  0       2         0      
        startup.obj                2       0         0      
     +--+--------------------------+-------+---------+---------+
-       Total:                     13566   352       2      
+       Total:                     13576   352       2      
                                                            
        Stack:                     0       0         80     
-       Linker Generated:          0       53        0      
+       Linker Generated:          0       60        0      
     +--+--------------------------+-------+---------+---------+
-       Grand Total:               22082   511       647    
+       Grand Total:               22126   514       655    
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 0000d824 records: 2, size/record: 4, table size: 8
-	.data: load addr=0000d7f6, load size=00000023 bytes, run addr=000003b8, run size=00000080 bytes, compression=lzss
-	.bss: load addr=0000d820, load size=00000004 bytes, run addr=00000200, run size=000001b8 bytes, compression=zero_init
+__TI_cinit_table @ 0000d852 records: 2, size/record: 4, table size: 8
+	.data: load addr=0000d81e, load size=0000002a bytes, run addr=000003b8, run size=00000088 bytes, compression=lzss
+	.bss: load addr=0000d84e, load size=00000004 bytes, run addr=00000200, run size=000001b8 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 0000d81a records: 3, size/record: 2, table size: 6
+__TI_handler_table @ 0000d848 records: 3, size/record: 2, table size: 6
 	index: 0, handler: __TI_zero_init
 	index: 1, handler: __TI_decompress_lzss
 	index: 2, handler: __TI_decompress_none
@@ -462,14 +461,14 @@ address   name
 00000057  BCSCTL1                             
 00000058  BCSCTL2                             
 00000053  BCSCTL3                             
-0000d2fa  BSP_Delay                           
-0000d3aa  BSP_GpioPort1Isr                    
-0000d1fa  BSP_Init                            
-0000d21a  BSP_InitBoard                       
-0000d5ae  BSP_InitButtons                     
-0000d5b8  BSP_InitDrivers                     
-0000d4b6  BSP_InitLeds                        
-0000d610  C$$EXIT                             
+0000d31c  BSP_Delay                           
+0000d3cc  BSP_GpioPort1Isr                    
+0000d21c  BSP_Init                            
+0000d23c  BSP_InitBoard                       
+0000d5d0  BSP_InitButtons                     
+0000d5da  BSP_InitDrivers                     
+0000d4d8  BSP_InitLeds                        
+0000d63c  C$$EXIT                             
 000010fb  CALBC1_12MHZ                        
 000010f9  CALBC1_16MHZ                        
 000010ff  CALBC1_1MHZ                         
@@ -479,7 +478,7 @@ address   name
 000010fe  CALDCO_1MHZ                         
 000010fc  CALDCO_8MHZ                         
 00000056  DCOCTL                              
-000003da  DURATION                            
+000003e2  DURATION                            
 00000128  FCTL1                               
 0000012a  FCTL2                               
 0000012c  FCTL3                               
@@ -487,27 +486,27 @@ address   name
 00000001  IE2                                 
 00000002  IFG1                                
 00000003  IFG2                                
-0000d03a  InitTimer                           
-0000d3f8  MRFI_DelayMs                        
-0000d194  MRFI_EnableRxAddrFilter             
-0000d604  MRFI_GetRadioState                  
-0000d372  MRFI_GpioIsr                        
-0000a6c6  MRFI_Init                           
-0000d58a  MRFI_PostKillSem                    
-0000d410  MRFI_RandomByte                     
-0000d552  MRFI_Receive                        
-0000c9a8  MRFI_ReplyDelay                     
-0000c920  MRFI_Rssi                           
-0000c808  MRFI_RxAddrIsFiltered               
-0000d23a  MRFI_RxCompleteISR                  
-0000d25a  MRFI_RxIdle                         
-0000d1b6  MRFI_RxOn                           
-0000ccfa  MRFI_SetLogicalChannel              
-0000cbc2  MRFI_SetRFPwr                       
-0000cbf6  MRFI_SetRxAddrFilter                
-0000d08a  MRFI_Sleep                          
-0000b2c4  MRFI_Transmit                       
-0000c54c  MRFI_WakeUp                         
+0000d05c  InitTimer                           
+0000d41a  MRFI_DelayMs                        
+0000d1b6  MRFI_EnableRxAddrFilter             
+0000d630  MRFI_GetRadioState                  
+0000d394  MRFI_GpioIsr                        
+0000a8ee  MRFI_Init                           
+0000d5ac  MRFI_PostKillSem                    
+0000d432  MRFI_RandomByte                     
+0000d574  MRFI_Receive                        
+0000c9ca  MRFI_ReplyDelay                     
+0000c942  MRFI_Rssi                           
+0000c82a  MRFI_RxAddrIsFiltered               
+0000d25c  MRFI_RxCompleteISR                  
+0000d27c  MRFI_RxIdle                         
+0000d1d8  MRFI_RxOn                           
+0000cd1c  MRFI_SetLogicalChannel              
+0000cbe4  MRFI_SetRFPwr                       
+0000cc18  MRFI_SetRxAddrFilter                
+0000d0ac  MRFI_Sleep                          
+0000b336  MRFI_Transmit                       
+0000c5be  MRFI_WakeUp                         
 000000c0  OA0CTL0                             
 000000c1  OA0CTL1                             
 000000c2  OA1CTL0                             
@@ -540,12 +539,12 @@ address   name
 0000001f  P4SEL                               
 000002c0  RX_ser_buf                          
 00000366  RadioMSG                            
-0000cc2a  SMPL_Init                           
-0000bbfa  SMPL_Ioctl                          
-0000af0c  SMPL_Link                           
-0000c694  SMPL_Receive                        
-0000d5f4  SMPL_Send                           
-0000c0aa  SMPL_SendOpt                        
+0000cc4c  SMPL_Init                           
+0000bc6c  SMPL_Ioctl                          
+0000af7e  SMPL_Link                           
+0000c6b6  SMPL_Receive                        
+0000d620  SMPL_Send                           
+0000c11c  SMPL_SendOpt                        
 00000172  TACCR0                              
 00000174  TACCR1                              
 00000176  TACCR2                              
@@ -564,8 +563,8 @@ address   name
 00000180  TBCTL                               
 0000011e  TBIV                                
 00000190  TBR                                 
-0000a88c  TIMERA0_ISR                         
-0000d7e8  TIME_ERROR_MULT_CONST               
+0000a4f6  TIMERA0_ISR                         
+000003de  TIME_CORR_THRESHOLD                 
 000002fc  TX_ser_buf                          
 00000386  UART_RX_BUFFER                      
 00000398  UART_TX_BUFFER                      
@@ -591,23 +590,23 @@ address   name
 0000006d  UCB0STAT                            
 0000006f  UCB0TXBUF                           
 00000120  WDTCTL                              
-0000d5c2  _Z11Disable_Intv                    
-0000d60a  _Z11Restore_Intt                    
-0000ce80  _Z13USCIAB0RX_ISRv                  
-0000cade  _Z13USCIAB0TX_ISRv                  
+0000d5e4  _Z11Disable_Intv                    
+0000d636  _Z11Restore_Intt                    
+0000cea2  _Z13USCIAB0RX_ISRv                  
+0000cb00  _Z13USCIAB0TX_ISRv                  
 00000600  __STACK_END                         
 00000050  __STACK_SIZE                        
 UNDEFED   __TI_BINIT_Base                     
 UNDEFED   __TI_BINIT_Limit                    
-0000d824  __TI_CINIT_Base                     
-0000d82c  __TI_CINIT_Limit                    
-0000d81a  __TI_Handler_Table_Base             
-0000d820  __TI_Handler_Table_Limit            
-0000d7f4  __TI_INITARRAY_Base                 
-0000d7f6  __TI_INITARRAY_Limit                
-0000d5fc  __TI_ISR_TRAP                       
-0000c128  __TI_decompress_lzss                
-0000d4c8  __TI_decompress_none                
+0000d852  __TI_CINIT_Base                     
+0000d85a  __TI_CINIT_Limit                    
+0000d848  __TI_Handler_Table_Base             
+0000d84e  __TI_Handler_Table_Limit            
+0000d81c  __TI_INITARRAY_Base                 
+0000d81e  __TI_INITARRAY_Limit                
+0000d628  __TI_ISR_TRAP                       
+0000c19a  __TI_decompress_lzss                
+0000d4ea  __TI_decompress_none                
 0000a296  __TI_frcaddd                        
 00009da2  __TI_frcmpyd                        
 0000ffe4  __TI_int02                          
@@ -624,231 +623,232 @@ UNDEFED   __TI_BINIT_Limit
 ffffffff  __TI_pprof_out_hndl                 
 ffffffff  __TI_prof_data_size                 
 ffffffff  __TI_prof_data_start                
-0000b9d8  __TI_renormd                        
-0000d452  __TI_zero_init                      
+0000ba4a  __TI_renormd                        
+0000d474  __TI_zero_init                      
 ffffffff  __c_args__                          
 00008000  __kernel_rem_pio2                   
 00009aba  __mspabi_addd                       
-0000b06a  __mspabi_addf                       
-0000b5b4  __mspabi_cmpd                       
-0000c776  __mspabi_cmpf                       
-0000be90  __mspabi_cvtdf                      
-0000c21c  __mspabi_cvtfd                      
-0000bdf4  __mspabi_divf                       
-0000cf8e  __mspabi_divi                       
-0000d43c  __mspabi_divu                       
-0000c4f4  __mspabi_divul                      
-0000c28e  __mspabi_fixdli                     
-0000c3d6  __mspabi_fixfi                      
-0000c894  __mspabi_fixfu                      
-0000cb8c  __mspabi_fltif                      
-0000bcaa  __mspabi_fltlid                     
-0000d54e  __mspabi_func_epilog_1              
-0000d54c  __mspabi_func_epilog_2              
-0000d54a  __mspabi_func_epilog_3              
-0000d548  __mspabi_func_epilog_4              
-0000d546  __mspabi_func_epilog_5              
-0000d544  __mspabi_func_epilog_6              
-0000d542  __mspabi_func_epilog_7              
+0000b0dc  __mspabi_addf                       
+0000b626  __mspabi_cmpd                       
+0000c798  __mspabi_cmpf                       
+0000bf02  __mspabi_cvtdf                      
+0000c28e  __mspabi_cvtfd                      
+0000be66  __mspabi_divf                       
+0000cfb0  __mspabi_divi                       
+0000d45e  __mspabi_divu                       
+0000c566  __mspabi_divul                      
+0000c300  __mspabi_fixdli                     
+0000c448  __mspabi_fixfi                      
+0000c8b6  __mspabi_fixfu                      
+0000cbae  __mspabi_fltif                      
+0000bd1c  __mspabi_fltlid                     
+0000d570  __mspabi_func_epilog_1              
+0000d56e  __mspabi_func_epilog_2              
+0000d56c  __mspabi_func_epilog_3              
+0000d56a  __mspabi_func_epilog_4              
+0000d568  __mspabi_func_epilog_5              
+0000d566  __mspabi_func_epilog_6              
+0000d564  __mspabi_func_epilog_7              
 0000a028  __mspabi_mpyd                       
-0000b914  __mspabi_mpyf                       
-0000d48e  __mspabi_mpyi                       
-0000d48e  __mspabi_mpyi_sw                    
-0000d16e  __mspabi_mpyl                       
-0000d16e  __mspabi_mpyl_sw                    
-0000cfe6  __mspabi_negd                       
-0000d5ea  __mspabi_negf                       
-0000cf8e  __mspabi_remi                       
-0000d43c  __mspabi_remu                       
-0000c4f4  __mspabi_remul                      
-0000cfba  __mspabi_slli                       
-0000cfe2  __mspabi_slli_1                     
-0000cfd0  __mspabi_slli_10                    
-0000cfce  __mspabi_slli_11                    
-0000cfcc  __mspabi_slli_12                    
-0000cfca  __mspabi_slli_13                    
-0000cfc8  __mspabi_slli_14                    
-0000cfc6  __mspabi_slli_15                    
-0000cfe0  __mspabi_slli_2                     
-0000cfde  __mspabi_slli_3                     
-0000cfdc  __mspabi_slli_4                     
-0000cfda  __mspabi_slli_5                     
-0000cfd8  __mspabi_slli_6                     
-0000cfd6  __mspabi_slli_7                     
-0000cfd4  __mspabi_slli_8                     
-0000cfd2  __mspabi_slli_9                     
-0000d532  __mspabi_slll                       
-0000ca9c  __mspabi_slll_1                     
-0000ca78  __mspabi_slll_10                    
-0000ca74  __mspabi_slll_11                    
-0000ca70  __mspabi_slll_12                    
-0000ca6c  __mspabi_slll_13                    
-0000ca68  __mspabi_slll_14                    
-0000ca64  __mspabi_slll_15                    
-0000ca98  __mspabi_slll_2                     
-0000ca94  __mspabi_slll_3                     
-0000ca90  __mspabi_slll_4                     
-0000ca8c  __mspabi_slll_5                     
-0000ca88  __mspabi_slll_6                     
-0000ca84  __mspabi_slll_7                     
-0000ca80  __mspabi_slll_8                     
-0000ca7c  __mspabi_slll_9                     
-0000cf62  __mspabi_srai                       
-0000cf8a  __mspabi_srai_1                     
-0000cf78  __mspabi_srai_10                    
-0000cf76  __mspabi_srai_11                    
-0000cf74  __mspabi_srai_12                    
-0000cf72  __mspabi_srai_13                    
-0000cf70  __mspabi_srai_14                    
-0000cf6e  __mspabi_srai_15                    
-0000cf88  __mspabi_srai_2                     
-0000cf86  __mspabi_srai_3                     
-0000cf84  __mspabi_srai_4                     
-0000cf82  __mspabi_srai_5                     
-0000cf80  __mspabi_srai_6                     
-0000cf7e  __mspabi_srai_7                     
-0000cf7c  __mspabi_srai_8                     
-0000cf7a  __mspabi_srai_9                     
-0000d522  __mspabi_sral                       
-0000ca5e  __mspabi_sral_1                     
-0000ca3a  __mspabi_sral_10                    
-0000ca36  __mspabi_sral_11                    
-0000ca32  __mspabi_sral_12                    
-0000ca2e  __mspabi_sral_13                    
-0000ca2a  __mspabi_sral_14                    
-0000ca26  __mspabi_sral_15                    
-0000ca5a  __mspabi_sral_2                     
-0000ca56  __mspabi_sral_3                     
-0000ca52  __mspabi_sral_4                     
-0000ca4e  __mspabi_sral_5                     
-0000ca4a  __mspabi_sral_6                     
-0000ca46  __mspabi_sral_7                     
-0000ca42  __mspabi_sral_8                     
-0000ca3e  __mspabi_sral_9                     
-0000c6e0  __mspabi_srli                       
-0000c726  __mspabi_srli_1                     
-0000c702  __mspabi_srli_10                    
-0000c6fe  __mspabi_srli_11                    
-0000c6fa  __mspabi_srli_12                    
-0000c6f6  __mspabi_srli_13                    
-0000c6f2  __mspabi_srli_14                    
-0000c6ee  __mspabi_srli_15                    
-0000c722  __mspabi_srli_2                     
-0000c71e  __mspabi_srli_3                     
-0000c71a  __mspabi_srli_4                     
-0000c716  __mspabi_srli_5                     
-0000c712  __mspabi_srli_6                     
-0000c70e  __mspabi_srli_7                     
-0000c70a  __mspabi_srli_8                     
-0000c706  __mspabi_srli_9                     
-0000d4da  __mspabi_srll                       
-0000c492  __mspabi_srll_1                     
-0000c45c  __mspabi_srll_10                    
-0000c456  __mspabi_srll_11                    
-0000c450  __mspabi_srll_12                    
-0000c44a  __mspabi_srll_13                    
-0000c444  __mspabi_srll_14                    
-0000c43e  __mspabi_srll_15                    
-0000c48c  __mspabi_srll_2                     
-0000c486  __mspabi_srll_3                     
-0000c480  __mspabi_srll_4                     
-0000c47a  __mspabi_srll_5                     
-0000c474  __mspabi_srll_6                     
-0000c46e  __mspabi_srll_7                     
-0000c468  __mspabi_srll_8                     
-0000c462  __mspabi_srll_9                     
-0000ceae  __mspabi_subd                       
-0000b064  __mspabi_subf                       
-0000b842  __sti___16_UART_HANDLER_cpp_3daaade3
-0000c300  _auto_init                          
-0000d3c4  _c_int00_noargs_noexit              
+0000b986  __mspabi_mpyf                       
+0000d4b0  __mspabi_mpyi                       
+0000d4b0  __mspabi_mpyi_sw                    
+0000d190  __mspabi_mpyl                       
+0000d190  __mspabi_mpyl_sw                    
+0000d008  __mspabi_negd                       
+0000d616  __mspabi_negf                       
+0000cfb0  __mspabi_remi                       
+0000d45e  __mspabi_remu                       
+0000c566  __mspabi_remul                      
+0000cfdc  __mspabi_slli                       
+0000d004  __mspabi_slli_1                     
+0000cff2  __mspabi_slli_10                    
+0000cff0  __mspabi_slli_11                    
+0000cfee  __mspabi_slli_12                    
+0000cfec  __mspabi_slli_13                    
+0000cfea  __mspabi_slli_14                    
+0000cfe8  __mspabi_slli_15                    
+0000d002  __mspabi_slli_2                     
+0000d000  __mspabi_slli_3                     
+0000cffe  __mspabi_slli_4                     
+0000cffc  __mspabi_slli_5                     
+0000cffa  __mspabi_slli_6                     
+0000cff8  __mspabi_slli_7                     
+0000cff6  __mspabi_slli_8                     
+0000cff4  __mspabi_slli_9                     
+0000d554  __mspabi_slll                       
+0000cabe  __mspabi_slll_1                     
+0000ca9a  __mspabi_slll_10                    
+0000ca96  __mspabi_slll_11                    
+0000ca92  __mspabi_slll_12                    
+0000ca8e  __mspabi_slll_13                    
+0000ca8a  __mspabi_slll_14                    
+0000ca86  __mspabi_slll_15                    
+0000caba  __mspabi_slll_2                     
+0000cab6  __mspabi_slll_3                     
+0000cab2  __mspabi_slll_4                     
+0000caae  __mspabi_slll_5                     
+0000caaa  __mspabi_slll_6                     
+0000caa6  __mspabi_slll_7                     
+0000caa2  __mspabi_slll_8                     
+0000ca9e  __mspabi_slll_9                     
+0000cf84  __mspabi_srai                       
+0000cfac  __mspabi_srai_1                     
+0000cf9a  __mspabi_srai_10                    
+0000cf98  __mspabi_srai_11                    
+0000cf96  __mspabi_srai_12                    
+0000cf94  __mspabi_srai_13                    
+0000cf92  __mspabi_srai_14                    
+0000cf90  __mspabi_srai_15                    
+0000cfaa  __mspabi_srai_2                     
+0000cfa8  __mspabi_srai_3                     
+0000cfa6  __mspabi_srai_4                     
+0000cfa4  __mspabi_srai_5                     
+0000cfa2  __mspabi_srai_6                     
+0000cfa0  __mspabi_srai_7                     
+0000cf9e  __mspabi_srai_8                     
+0000cf9c  __mspabi_srai_9                     
+0000d544  __mspabi_sral                       
+0000ca80  __mspabi_sral_1                     
+0000ca5c  __mspabi_sral_10                    
+0000ca58  __mspabi_sral_11                    
+0000ca54  __mspabi_sral_12                    
+0000ca50  __mspabi_sral_13                    
+0000ca4c  __mspabi_sral_14                    
+0000ca48  __mspabi_sral_15                    
+0000ca7c  __mspabi_sral_2                     
+0000ca78  __mspabi_sral_3                     
+0000ca74  __mspabi_sral_4                     
+0000ca70  __mspabi_sral_5                     
+0000ca6c  __mspabi_sral_6                     
+0000ca68  __mspabi_sral_7                     
+0000ca64  __mspabi_sral_8                     
+0000ca60  __mspabi_sral_9                     
+0000c702  __mspabi_srli                       
+0000c748  __mspabi_srli_1                     
+0000c724  __mspabi_srli_10                    
+0000c720  __mspabi_srli_11                    
+0000c71c  __mspabi_srli_12                    
+0000c718  __mspabi_srli_13                    
+0000c714  __mspabi_srli_14                    
+0000c710  __mspabi_srli_15                    
+0000c744  __mspabi_srli_2                     
+0000c740  __mspabi_srli_3                     
+0000c73c  __mspabi_srli_4                     
+0000c738  __mspabi_srli_5                     
+0000c734  __mspabi_srli_6                     
+0000c730  __mspabi_srli_7                     
+0000c72c  __mspabi_srli_8                     
+0000c728  __mspabi_srli_9                     
+0000d4fc  __mspabi_srll                       
+0000c504  __mspabi_srll_1                     
+0000c4ce  __mspabi_srll_10                    
+0000c4c8  __mspabi_srll_11                    
+0000c4c2  __mspabi_srll_12                    
+0000c4bc  __mspabi_srll_13                    
+0000c4b6  __mspabi_srll_14                    
+0000c4b0  __mspabi_srll_15                    
+0000c4fe  __mspabi_srll_2                     
+0000c4f8  __mspabi_srll_3                     
+0000c4f2  __mspabi_srll_4                     
+0000c4ec  __mspabi_srll_5                     
+0000c4e6  __mspabi_srll_6                     
+0000c4e0  __mspabi_srll_7                     
+0000c4da  __mspabi_srll_8                     
+0000c4d4  __mspabi_srll_9                     
+0000ced0  __mspabi_subd                       
+0000b0d6  __mspabi_subf                       
+0000b8b4  __sti___16_UART_HANDLER_cpp_3daaade3
+0000c372  _auto_init                          
+0000d3e6  _c_int00_noargs_noexit              
 0000fffe  _reset_vector                       
 000005b0  _stack                              
-0000d63c  _system_post_cinit                  
-0000d5cc  _system_pre_init                    
-0000d610  abort                               
+0000d668  _system_post_cinit                  
+0000d5ee  _system_pre_init                    
+0000d63c  abort                               
+0000d5f8  abs                                 
 000003ba  amplitude                           
-0000c5f4  cap                                 
-000003ce  clock_check                         
-0000c49a  copy_in                             
-0000cedc  copysign                            
-0000cedc  copysignl                           
-000003ca  err_time                            
-00000436  errno                               
-0000a4f6  floor                               
-0000a4f6  floorl                              
+000003ca  clock_check                         
+000003ce  clock_check2                        
+0000c50c  copy_in                             
+0000cefe  copysign                            
+0000cefe  copysignl                           
+000003da  drift_rate                          
+0000043e  errno                               
+0000a71e  floor                               
+0000a71e  floorl                              
 000003be  frequency                           
 000003d2  init_clock_check                    
-00000429  lAddr                               
-0000aa42  ldexp                               
-0000aa42  ldexpl                              
-0000ad7e  main                                
-0000d1d8  memcmp                              
-0000d4ec  memcpy                              
-0000d29a  memmove                             
-0000d47a  memset                              
-0000d7e0  mrfiBroadcastAddr                   
-0000c72c  mrfiSpiCmdStrobe                    
-0000cc5e  mrfiSpiInit                         
-0000d318  mrfiSpiReadReg                      
-0000d5a2  mrfiSpiReadRxFifo                   
-0000d3de  mrfiSpiWriteReg                     
-0000d560  mrfiSpiWriteTxFifo                  
-0000d336  nwk_QInit                           
-0000cc92  nwk_QadjustOrder                    
-0000b196  nwk_QfindOldest                     
-0000c028  nwk_QfindSlot                       
-0000b76a  nwk_allocateLocalRxPort             
-0000bd56  nwk_buildFrame                      
-0000d010  nwk_checkConnInfo                   
-0000d0d6  nwk_connectionControl               
-0000ccc6  nwk_deviceAddress                   
-0000d2ba  nwk_frameInit                       
-0000d616  nwk_freeConnection                  
-0000d63e  nwk_freqInit                        
-0000d61c  nwk_getBCastAddress                 
-0000cd5e  nwk_getConnInfo                     
-0000d622  nwk_getFWVersion                    
-0000d4fe  nwk_getMyAddress                    
-0000d628  nwk_getMyRxType                     
-0000c644  nwk_getNextConnection               
-0000d56e  nwk_getNumObjectFromMsg             
-0000d62e  nwk_getProtocolVersion              
-0000d0fc  nwk_globalsInit                     
-0000c36e  nwk_isConnectionValid               
-0000c84e  nwk_isLinkDuplicate                 
-0000cb18  nwk_isValidReply                    
-0000b4c2  nwk_join                            
-0000d122  nwk_joinInit                        
-0000af0c  nwk_link                            
-0000cd90  nwk_linkInit                        
-0000d5d6  nwk_mgmtInit                        
-0000bf1c  nwk_nwkInit                         
-0000d5e0  nwk_pingInit                        
-0000d634  nwk_processFreq                     
-0000d2da  nwk_processJoin                     
-0000d148  nwk_processLink                     
-0000cb52  nwk_processMgmt                     
-0000d062  nwk_processPing                     
-0000d638  nwk_processSecurity                 
-0000caa2  nwk_putNumObjectIntoMsg             
-0000c1a4  nwk_radioControl                    
-0000cdf2  nwk_rawReceive                      
-0000c5a0  nwk_rawSend                         
-0000bb48  nwk_retrieveFrame                   
-0000d640  nwk_securityInit                    
-0000ce22  nwk_sendFrame                       
-0000d57c  nwk_setAPAddress                    
-0000d510  nwk_setLinkToken                    
-0000d38e  nwk_setMyAddress                    
+00000431  lAddr                               
+0000aab4  ldexp                               
+0000aab4  ldexpl                              
+0000adf0  main                                
+0000d1fa  memcmp                              
+0000d50e  memcpy                              
+0000d2bc  memmove                             
+0000d49c  memset                              
+0000d80c  mrfiBroadcastAddr                   
+0000c74e  mrfiSpiCmdStrobe                    
+0000cc80  mrfiSpiInit                         
+0000d33a  mrfiSpiReadReg                      
+0000d5c4  mrfiSpiReadRxFifo                   
+0000d400  mrfiSpiWriteReg                     
+0000d582  mrfiSpiWriteTxFifo                  
+0000d358  nwk_QInit                           
+0000ccb4  nwk_QadjustOrder                    
+0000b208  nwk_QfindOldest                     
+0000c09a  nwk_QfindSlot                       
+0000b7dc  nwk_allocateLocalRxPort             
+0000bdc8  nwk_buildFrame                      
+0000d032  nwk_checkConnInfo                   
+0000d0f8  nwk_connectionControl               
+0000cce8  nwk_deviceAddress                   
+0000d2dc  nwk_frameInit                       
+0000d642  nwk_freeConnection                  
+0000d66a  nwk_freqInit                        
+0000d648  nwk_getBCastAddress                 
+0000cd80  nwk_getConnInfo                     
+0000d64e  nwk_getFWVersion                    
+0000d520  nwk_getMyAddress                    
+0000d654  nwk_getMyRxType                     
+0000c666  nwk_getNextConnection               
+0000d590  nwk_getNumObjectFromMsg             
+0000d65a  nwk_getProtocolVersion              
+0000d11e  nwk_globalsInit                     
+0000c3e0  nwk_isConnectionValid               
+0000c870  nwk_isLinkDuplicate                 
+0000cb3a  nwk_isValidReply                    
+0000b534  nwk_join                            
+0000d144  nwk_joinInit                        
+0000af7e  nwk_link                            
+0000cdb2  nwk_linkInit                        
+0000d602  nwk_mgmtInit                        
+0000bf8e  nwk_nwkInit                         
+0000d60c  nwk_pingInit                        
+0000d660  nwk_processFreq                     
+0000d2fc  nwk_processJoin                     
+0000d16a  nwk_processLink                     
+0000cb74  nwk_processMgmt                     
+0000d084  nwk_processPing                     
+0000d664  nwk_processSecurity                 
+0000cac4  nwk_putNumObjectIntoMsg             
+0000c216  nwk_radioControl                    
+0000ce14  nwk_rawReceive                      
+0000c612  nwk_rawSend                         
+0000bbba  nwk_retrieveFrame                   
+0000d66c  nwk_securityInit                    
+0000ce44  nwk_sendFrame                       
+0000d59e  nwk_setAPAddress                    
+0000d532  nwk_setLinkToken                    
+0000d3b0  nwk_setMyAddress                    
 000003c2  phase                               
-0000aa42  scalbn                              
-0000aa42  scalbnl                             
+0000aab4  scalbn                              
+0000aab4  scalbnl                             
 00008d8e  sinf                                
-000003de  start_time                          
+000003e6  start_time                          
 000003c6  time                                
 000003d6  time_correction                     
-0000d4a2  toggleLED                           
+0000d4c4  toggleLED                           
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -954,14 +954,16 @@ address   name
 000003be  frequency                           
 000003c2  phase                               
 000003c6  time                                
-000003ca  err_time                            
-000003ce  clock_check                         
+000003ca  clock_check                         
+000003ce  clock_check2                        
 000003d2  init_clock_check                    
 000003d6  time_correction                     
-000003da  DURATION                            
-000003de  start_time                          
-00000429  lAddr                               
-00000436  errno                               
+000003da  drift_rate                          
+000003de  TIME_CORR_THRESHOLD                 
+000003e2  DURATION                            
+000003e6  start_time                          
+00000431  lAddr                               
+0000043e  errno                               
 000005b0  _stack                              
 00000600  __STACK_END                         
 000010f8  CALDCO_16MHZ                        
@@ -978,263 +980,262 @@ address   name
 00009da2  __TI_frcmpyd                        
 0000a028  __mspabi_mpyd                       
 0000a296  __TI_frcaddd                        
-0000a4f6  floor                               
-0000a4f6  floorl                              
-0000a6c6  MRFI_Init                           
-0000a88c  TIMERA0_ISR                         
-0000aa42  ldexp                               
-0000aa42  ldexpl                              
-0000aa42  scalbn                              
-0000aa42  scalbnl                             
-0000ad7e  main                                
-0000af0c  SMPL_Link                           
-0000af0c  nwk_link                            
-0000b064  __mspabi_subf                       
-0000b06a  __mspabi_addf                       
-0000b196  nwk_QfindOldest                     
-0000b2c4  MRFI_Transmit                       
-0000b4c2  nwk_join                            
-0000b5b4  __mspabi_cmpd                       
-0000b76a  nwk_allocateLocalRxPort             
-0000b842  __sti___16_UART_HANDLER_cpp_3daaade3
-0000b914  __mspabi_mpyf                       
-0000b9d8  __TI_renormd                        
-0000bb48  nwk_retrieveFrame                   
-0000bbfa  SMPL_Ioctl                          
-0000bcaa  __mspabi_fltlid                     
-0000bd56  nwk_buildFrame                      
-0000bdf4  __mspabi_divf                       
-0000be90  __mspabi_cvtdf                      
-0000bf1c  nwk_nwkInit                         
-0000c028  nwk_QfindSlot                       
-0000c0aa  SMPL_SendOpt                        
-0000c128  __TI_decompress_lzss                
-0000c1a4  nwk_radioControl                    
-0000c21c  __mspabi_cvtfd                      
-0000c28e  __mspabi_fixdli                     
-0000c300  _auto_init                          
-0000c36e  nwk_isConnectionValid               
-0000c3d6  __mspabi_fixfi                      
-0000c43e  __mspabi_srll_15                    
-0000c444  __mspabi_srll_14                    
-0000c44a  __mspabi_srll_13                    
-0000c450  __mspabi_srll_12                    
-0000c456  __mspabi_srll_11                    
-0000c45c  __mspabi_srll_10                    
-0000c462  __mspabi_srll_9                     
-0000c468  __mspabi_srll_8                     
-0000c46e  __mspabi_srll_7                     
-0000c474  __mspabi_srll_6                     
-0000c47a  __mspabi_srll_5                     
-0000c480  __mspabi_srll_4                     
-0000c486  __mspabi_srll_3                     
-0000c48c  __mspabi_srll_2                     
-0000c492  __mspabi_srll_1                     
-0000c49a  copy_in                             
-0000c4f4  __mspabi_divul                      
-0000c4f4  __mspabi_remul                      
-0000c54c  MRFI_WakeUp                         
-0000c5a0  nwk_rawSend                         
-0000c5f4  cap                                 
-0000c644  nwk_getNextConnection               
-0000c694  SMPL_Receive                        
-0000c6e0  __mspabi_srli                       
-0000c6ee  __mspabi_srli_15                    
-0000c6f2  __mspabi_srli_14                    
-0000c6f6  __mspabi_srli_13                    
-0000c6fa  __mspabi_srli_12                    
-0000c6fe  __mspabi_srli_11                    
-0000c702  __mspabi_srli_10                    
-0000c706  __mspabi_srli_9                     
-0000c70a  __mspabi_srli_8                     
-0000c70e  __mspabi_srli_7                     
-0000c712  __mspabi_srli_6                     
-0000c716  __mspabi_srli_5                     
-0000c71a  __mspabi_srli_4                     
-0000c71e  __mspabi_srli_3                     
-0000c722  __mspabi_srli_2                     
-0000c726  __mspabi_srli_1                     
-0000c72c  mrfiSpiCmdStrobe                    
-0000c776  __mspabi_cmpf                       
-0000c808  MRFI_RxAddrIsFiltered               
-0000c84e  nwk_isLinkDuplicate                 
-0000c894  __mspabi_fixfu                      
-0000c920  MRFI_Rssi                           
-0000c9a8  MRFI_ReplyDelay                     
-0000ca26  __mspabi_sral_15                    
-0000ca2a  __mspabi_sral_14                    
-0000ca2e  __mspabi_sral_13                    
-0000ca32  __mspabi_sral_12                    
-0000ca36  __mspabi_sral_11                    
-0000ca3a  __mspabi_sral_10                    
-0000ca3e  __mspabi_sral_9                     
-0000ca42  __mspabi_sral_8                     
-0000ca46  __mspabi_sral_7                     
-0000ca4a  __mspabi_sral_6                     
-0000ca4e  __mspabi_sral_5                     
-0000ca52  __mspabi_sral_4                     
-0000ca56  __mspabi_sral_3                     
-0000ca5a  __mspabi_sral_2                     
-0000ca5e  __mspabi_sral_1                     
-0000ca64  __mspabi_slll_15                    
-0000ca68  __mspabi_slll_14                    
-0000ca6c  __mspabi_slll_13                    
-0000ca70  __mspabi_slll_12                    
-0000ca74  __mspabi_slll_11                    
-0000ca78  __mspabi_slll_10                    
-0000ca7c  __mspabi_slll_9                     
-0000ca80  __mspabi_slll_8                     
-0000ca84  __mspabi_slll_7                     
-0000ca88  __mspabi_slll_6                     
-0000ca8c  __mspabi_slll_5                     
-0000ca90  __mspabi_slll_4                     
-0000ca94  __mspabi_slll_3                     
-0000ca98  __mspabi_slll_2                     
-0000ca9c  __mspabi_slll_1                     
-0000caa2  nwk_putNumObjectIntoMsg             
-0000cade  _Z13USCIAB0TX_ISRv                  
-0000cb18  nwk_isValidReply                    
-0000cb52  nwk_processMgmt                     
-0000cb8c  __mspabi_fltif                      
-0000cbc2  MRFI_SetRFPwr                       
-0000cbf6  MRFI_SetRxAddrFilter                
-0000cc2a  SMPL_Init                           
-0000cc5e  mrfiSpiInit                         
-0000cc92  nwk_QadjustOrder                    
-0000ccc6  nwk_deviceAddress                   
-0000ccfa  MRFI_SetLogicalChannel              
-0000cd5e  nwk_getConnInfo                     
-0000cd90  nwk_linkInit                        
-0000cdf2  nwk_rawReceive                      
-0000ce22  nwk_sendFrame                       
-0000ce80  _Z13USCIAB0RX_ISRv                  
-0000ceae  __mspabi_subd                       
-0000cedc  copysign                            
-0000cedc  copysignl                           
-0000cf62  __mspabi_srai                       
-0000cf6e  __mspabi_srai_15                    
-0000cf70  __mspabi_srai_14                    
-0000cf72  __mspabi_srai_13                    
-0000cf74  __mspabi_srai_12                    
-0000cf76  __mspabi_srai_11                    
-0000cf78  __mspabi_srai_10                    
-0000cf7a  __mspabi_srai_9                     
-0000cf7c  __mspabi_srai_8                     
-0000cf7e  __mspabi_srai_7                     
-0000cf80  __mspabi_srai_6                     
-0000cf82  __mspabi_srai_5                     
-0000cf84  __mspabi_srai_4                     
-0000cf86  __mspabi_srai_3                     
-0000cf88  __mspabi_srai_2                     
-0000cf8a  __mspabi_srai_1                     
-0000cf8e  __mspabi_divi                       
-0000cf8e  __mspabi_remi                       
-0000cfba  __mspabi_slli                       
-0000cfc6  __mspabi_slli_15                    
-0000cfc8  __mspabi_slli_14                    
-0000cfca  __mspabi_slli_13                    
-0000cfcc  __mspabi_slli_12                    
-0000cfce  __mspabi_slli_11                    
-0000cfd0  __mspabi_slli_10                    
-0000cfd2  __mspabi_slli_9                     
-0000cfd4  __mspabi_slli_8                     
-0000cfd6  __mspabi_slli_7                     
-0000cfd8  __mspabi_slli_6                     
-0000cfda  __mspabi_slli_5                     
-0000cfdc  __mspabi_slli_4                     
-0000cfde  __mspabi_slli_3                     
-0000cfe0  __mspabi_slli_2                     
-0000cfe2  __mspabi_slli_1                     
-0000cfe6  __mspabi_negd                       
-0000d010  nwk_checkConnInfo                   
-0000d03a  InitTimer                           
-0000d062  nwk_processPing                     
-0000d08a  MRFI_Sleep                          
-0000d0d6  nwk_connectionControl               
-0000d0fc  nwk_globalsInit                     
-0000d122  nwk_joinInit                        
-0000d148  nwk_processLink                     
-0000d16e  __mspabi_mpyl                       
-0000d16e  __mspabi_mpyl_sw                    
-0000d194  MRFI_EnableRxAddrFilter             
-0000d1b6  MRFI_RxOn                           
-0000d1d8  memcmp                              
-0000d1fa  BSP_Init                            
-0000d21a  BSP_InitBoard                       
-0000d23a  MRFI_RxCompleteISR                  
-0000d25a  MRFI_RxIdle                         
-0000d29a  memmove                             
-0000d2ba  nwk_frameInit                       
-0000d2da  nwk_processJoin                     
-0000d2fa  BSP_Delay                           
-0000d318  mrfiSpiReadReg                      
-0000d336  nwk_QInit                           
-0000d372  MRFI_GpioIsr                        
-0000d38e  nwk_setMyAddress                    
-0000d3aa  BSP_GpioPort1Isr                    
-0000d3c4  _c_int00_noargs_noexit              
-0000d3de  mrfiSpiWriteReg                     
-0000d3f8  MRFI_DelayMs                        
-0000d410  MRFI_RandomByte                     
-0000d43c  __mspabi_divu                       
-0000d43c  __mspabi_remu                       
-0000d452  __TI_zero_init                      
-0000d47a  memset                              
-0000d48e  __mspabi_mpyi                       
-0000d48e  __mspabi_mpyi_sw                    
-0000d4a2  toggleLED                           
-0000d4b6  BSP_InitLeds                        
-0000d4c8  __TI_decompress_none                
-0000d4da  __mspabi_srll                       
-0000d4ec  memcpy                              
-0000d4fe  nwk_getMyAddress                    
-0000d510  nwk_setLinkToken                    
-0000d522  __mspabi_sral                       
-0000d532  __mspabi_slll                       
-0000d542  __mspabi_func_epilog_7              
-0000d544  __mspabi_func_epilog_6              
-0000d546  __mspabi_func_epilog_5              
-0000d548  __mspabi_func_epilog_4              
-0000d54a  __mspabi_func_epilog_3              
-0000d54c  __mspabi_func_epilog_2              
-0000d54e  __mspabi_func_epilog_1              
-0000d552  MRFI_Receive                        
-0000d560  mrfiSpiWriteTxFifo                  
-0000d56e  nwk_getNumObjectFromMsg             
-0000d57c  nwk_setAPAddress                    
-0000d58a  MRFI_PostKillSem                    
-0000d5a2  mrfiSpiReadRxFifo                   
-0000d5ae  BSP_InitButtons                     
-0000d5b8  BSP_InitDrivers                     
-0000d5c2  _Z11Disable_Intv                    
-0000d5cc  _system_pre_init                    
-0000d5d6  nwk_mgmtInit                        
-0000d5e0  nwk_pingInit                        
-0000d5ea  __mspabi_negf                       
-0000d5f4  SMPL_Send                           
-0000d5fc  __TI_ISR_TRAP                       
-0000d604  MRFI_GetRadioState                  
-0000d60a  _Z11Restore_Intt                    
-0000d610  C$$EXIT                             
-0000d610  abort                               
-0000d616  nwk_freeConnection                  
-0000d61c  nwk_getBCastAddress                 
-0000d622  nwk_getFWVersion                    
-0000d628  nwk_getMyRxType                     
-0000d62e  nwk_getProtocolVersion              
-0000d634  nwk_processFreq                     
-0000d638  nwk_processSecurity                 
-0000d63c  _system_post_cinit                  
-0000d63e  nwk_freqInit                        
-0000d640  nwk_securityInit                    
-0000d7e0  mrfiBroadcastAddr                   
-0000d7e8  TIME_ERROR_MULT_CONST               
-0000d7f4  __TI_INITARRAY_Base                 
-0000d7f6  __TI_INITARRAY_Limit                
-0000d81a  __TI_Handler_Table_Base             
-0000d820  __TI_Handler_Table_Limit            
-0000d824  __TI_CINIT_Base                     
-0000d82c  __TI_CINIT_Limit                    
+0000a4f6  TIMERA0_ISR                         
+0000a71e  floor                               
+0000a71e  floorl                              
+0000a8ee  MRFI_Init                           
+0000aab4  ldexp                               
+0000aab4  ldexpl                              
+0000aab4  scalbn                              
+0000aab4  scalbnl                             
+0000adf0  main                                
+0000af7e  SMPL_Link                           
+0000af7e  nwk_link                            
+0000b0d6  __mspabi_subf                       
+0000b0dc  __mspabi_addf                       
+0000b208  nwk_QfindOldest                     
+0000b336  MRFI_Transmit                       
+0000b534  nwk_join                            
+0000b626  __mspabi_cmpd                       
+0000b7dc  nwk_allocateLocalRxPort             
+0000b8b4  __sti___16_UART_HANDLER_cpp_3daaade3
+0000b986  __mspabi_mpyf                       
+0000ba4a  __TI_renormd                        
+0000bbba  nwk_retrieveFrame                   
+0000bc6c  SMPL_Ioctl                          
+0000bd1c  __mspabi_fltlid                     
+0000bdc8  nwk_buildFrame                      
+0000be66  __mspabi_divf                       
+0000bf02  __mspabi_cvtdf                      
+0000bf8e  nwk_nwkInit                         
+0000c09a  nwk_QfindSlot                       
+0000c11c  SMPL_SendOpt                        
+0000c19a  __TI_decompress_lzss                
+0000c216  nwk_radioControl                    
+0000c28e  __mspabi_cvtfd                      
+0000c300  __mspabi_fixdli                     
+0000c372  _auto_init                          
+0000c3e0  nwk_isConnectionValid               
+0000c448  __mspabi_fixfi                      
+0000c4b0  __mspabi_srll_15                    
+0000c4b6  __mspabi_srll_14                    
+0000c4bc  __mspabi_srll_13                    
+0000c4c2  __mspabi_srll_12                    
+0000c4c8  __mspabi_srll_11                    
+0000c4ce  __mspabi_srll_10                    
+0000c4d4  __mspabi_srll_9                     
+0000c4da  __mspabi_srll_8                     
+0000c4e0  __mspabi_srll_7                     
+0000c4e6  __mspabi_srll_6                     
+0000c4ec  __mspabi_srll_5                     
+0000c4f2  __mspabi_srll_4                     
+0000c4f8  __mspabi_srll_3                     
+0000c4fe  __mspabi_srll_2                     
+0000c504  __mspabi_srll_1                     
+0000c50c  copy_in                             
+0000c566  __mspabi_divul                      
+0000c566  __mspabi_remul                      
+0000c5be  MRFI_WakeUp                         
+0000c612  nwk_rawSend                         
+0000c666  nwk_getNextConnection               
+0000c6b6  SMPL_Receive                        
+0000c702  __mspabi_srli                       
+0000c710  __mspabi_srli_15                    
+0000c714  __mspabi_srli_14                    
+0000c718  __mspabi_srli_13                    
+0000c71c  __mspabi_srli_12                    
+0000c720  __mspabi_srli_11                    
+0000c724  __mspabi_srli_10                    
+0000c728  __mspabi_srli_9                     
+0000c72c  __mspabi_srli_8                     
+0000c730  __mspabi_srli_7                     
+0000c734  __mspabi_srli_6                     
+0000c738  __mspabi_srli_5                     
+0000c73c  __mspabi_srli_4                     
+0000c740  __mspabi_srli_3                     
+0000c744  __mspabi_srli_2                     
+0000c748  __mspabi_srli_1                     
+0000c74e  mrfiSpiCmdStrobe                    
+0000c798  __mspabi_cmpf                       
+0000c82a  MRFI_RxAddrIsFiltered               
+0000c870  nwk_isLinkDuplicate                 
+0000c8b6  __mspabi_fixfu                      
+0000c942  MRFI_Rssi                           
+0000c9ca  MRFI_ReplyDelay                     
+0000ca48  __mspabi_sral_15                    
+0000ca4c  __mspabi_sral_14                    
+0000ca50  __mspabi_sral_13                    
+0000ca54  __mspabi_sral_12                    
+0000ca58  __mspabi_sral_11                    
+0000ca5c  __mspabi_sral_10                    
+0000ca60  __mspabi_sral_9                     
+0000ca64  __mspabi_sral_8                     
+0000ca68  __mspabi_sral_7                     
+0000ca6c  __mspabi_sral_6                     
+0000ca70  __mspabi_sral_5                     
+0000ca74  __mspabi_sral_4                     
+0000ca78  __mspabi_sral_3                     
+0000ca7c  __mspabi_sral_2                     
+0000ca80  __mspabi_sral_1                     
+0000ca86  __mspabi_slll_15                    
+0000ca8a  __mspabi_slll_14                    
+0000ca8e  __mspabi_slll_13                    
+0000ca92  __mspabi_slll_12                    
+0000ca96  __mspabi_slll_11                    
+0000ca9a  __mspabi_slll_10                    
+0000ca9e  __mspabi_slll_9                     
+0000caa2  __mspabi_slll_8                     
+0000caa6  __mspabi_slll_7                     
+0000caaa  __mspabi_slll_6                     
+0000caae  __mspabi_slll_5                     
+0000cab2  __mspabi_slll_4                     
+0000cab6  __mspabi_slll_3                     
+0000caba  __mspabi_slll_2                     
+0000cabe  __mspabi_slll_1                     
+0000cac4  nwk_putNumObjectIntoMsg             
+0000cb00  _Z13USCIAB0TX_ISRv                  
+0000cb3a  nwk_isValidReply                    
+0000cb74  nwk_processMgmt                     
+0000cbae  __mspabi_fltif                      
+0000cbe4  MRFI_SetRFPwr                       
+0000cc18  MRFI_SetRxAddrFilter                
+0000cc4c  SMPL_Init                           
+0000cc80  mrfiSpiInit                         
+0000ccb4  nwk_QadjustOrder                    
+0000cce8  nwk_deviceAddress                   
+0000cd1c  MRFI_SetLogicalChannel              
+0000cd80  nwk_getConnInfo                     
+0000cdb2  nwk_linkInit                        
+0000ce14  nwk_rawReceive                      
+0000ce44  nwk_sendFrame                       
+0000cea2  _Z13USCIAB0RX_ISRv                  
+0000ced0  __mspabi_subd                       
+0000cefe  copysign                            
+0000cefe  copysignl                           
+0000cf84  __mspabi_srai                       
+0000cf90  __mspabi_srai_15                    
+0000cf92  __mspabi_srai_14                    
+0000cf94  __mspabi_srai_13                    
+0000cf96  __mspabi_srai_12                    
+0000cf98  __mspabi_srai_11                    
+0000cf9a  __mspabi_srai_10                    
+0000cf9c  __mspabi_srai_9                     
+0000cf9e  __mspabi_srai_8                     
+0000cfa0  __mspabi_srai_7                     
+0000cfa2  __mspabi_srai_6                     
+0000cfa4  __mspabi_srai_5                     
+0000cfa6  __mspabi_srai_4                     
+0000cfa8  __mspabi_srai_3                     
+0000cfaa  __mspabi_srai_2                     
+0000cfac  __mspabi_srai_1                     
+0000cfb0  __mspabi_divi                       
+0000cfb0  __mspabi_remi                       
+0000cfdc  __mspabi_slli                       
+0000cfe8  __mspabi_slli_15                    
+0000cfea  __mspabi_slli_14                    
+0000cfec  __mspabi_slli_13                    
+0000cfee  __mspabi_slli_12                    
+0000cff0  __mspabi_slli_11                    
+0000cff2  __mspabi_slli_10                    
+0000cff4  __mspabi_slli_9                     
+0000cff6  __mspabi_slli_8                     
+0000cff8  __mspabi_slli_7                     
+0000cffa  __mspabi_slli_6                     
+0000cffc  __mspabi_slli_5                     
+0000cffe  __mspabi_slli_4                     
+0000d000  __mspabi_slli_3                     
+0000d002  __mspabi_slli_2                     
+0000d004  __mspabi_slli_1                     
+0000d008  __mspabi_negd                       
+0000d032  nwk_checkConnInfo                   
+0000d05c  InitTimer                           
+0000d084  nwk_processPing                     
+0000d0ac  MRFI_Sleep                          
+0000d0f8  nwk_connectionControl               
+0000d11e  nwk_globalsInit                     
+0000d144  nwk_joinInit                        
+0000d16a  nwk_processLink                     
+0000d190  __mspabi_mpyl                       
+0000d190  __mspabi_mpyl_sw                    
+0000d1b6  MRFI_EnableRxAddrFilter             
+0000d1d8  MRFI_RxOn                           
+0000d1fa  memcmp                              
+0000d21c  BSP_Init                            
+0000d23c  BSP_InitBoard                       
+0000d25c  MRFI_RxCompleteISR                  
+0000d27c  MRFI_RxIdle                         
+0000d2bc  memmove                             
+0000d2dc  nwk_frameInit                       
+0000d2fc  nwk_processJoin                     
+0000d31c  BSP_Delay                           
+0000d33a  mrfiSpiReadReg                      
+0000d358  nwk_QInit                           
+0000d394  MRFI_GpioIsr                        
+0000d3b0  nwk_setMyAddress                    
+0000d3cc  BSP_GpioPort1Isr                    
+0000d3e6  _c_int00_noargs_noexit              
+0000d400  mrfiSpiWriteReg                     
+0000d41a  MRFI_DelayMs                        
+0000d432  MRFI_RandomByte                     
+0000d45e  __mspabi_divu                       
+0000d45e  __mspabi_remu                       
+0000d474  __TI_zero_init                      
+0000d49c  memset                              
+0000d4b0  __mspabi_mpyi                       
+0000d4b0  __mspabi_mpyi_sw                    
+0000d4c4  toggleLED                           
+0000d4d8  BSP_InitLeds                        
+0000d4ea  __TI_decompress_none                
+0000d4fc  __mspabi_srll                       
+0000d50e  memcpy                              
+0000d520  nwk_getMyAddress                    
+0000d532  nwk_setLinkToken                    
+0000d544  __mspabi_sral                       
+0000d554  __mspabi_slll                       
+0000d564  __mspabi_func_epilog_7              
+0000d566  __mspabi_func_epilog_6              
+0000d568  __mspabi_func_epilog_5              
+0000d56a  __mspabi_func_epilog_4              
+0000d56c  __mspabi_func_epilog_3              
+0000d56e  __mspabi_func_epilog_2              
+0000d570  __mspabi_func_epilog_1              
+0000d574  MRFI_Receive                        
+0000d582  mrfiSpiWriteTxFifo                  
+0000d590  nwk_getNumObjectFromMsg             
+0000d59e  nwk_setAPAddress                    
+0000d5ac  MRFI_PostKillSem                    
+0000d5c4  mrfiSpiReadRxFifo                   
+0000d5d0  BSP_InitButtons                     
+0000d5da  BSP_InitDrivers                     
+0000d5e4  _Z11Disable_Intv                    
+0000d5ee  _system_pre_init                    
+0000d5f8  abs                                 
+0000d602  nwk_mgmtInit                        
+0000d60c  nwk_pingInit                        
+0000d616  __mspabi_negf                       
+0000d620  SMPL_Send                           
+0000d628  __TI_ISR_TRAP                       
+0000d630  MRFI_GetRadioState                  
+0000d636  _Z11Restore_Intt                    
+0000d63c  C$$EXIT                             
+0000d63c  abort                               
+0000d642  nwk_freeConnection                  
+0000d648  nwk_getBCastAddress                 
+0000d64e  nwk_getFWVersion                    
+0000d654  nwk_getMyRxType                     
+0000d65a  nwk_getProtocolVersion              
+0000d660  nwk_processFreq                     
+0000d664  nwk_processSecurity                 
+0000d668  _system_post_cinit                  
+0000d66a  nwk_freqInit                        
+0000d66c  nwk_securityInit                    
+0000d80c  mrfiBroadcastAddr                   
+0000d81c  __TI_INITARRAY_Base                 
+0000d81e  __TI_INITARRAY_Limit                
+0000d848  __TI_Handler_Table_Base             
+0000d84e  __TI_Handler_Table_Limit            
+0000d852  __TI_CINIT_Base                     
+0000d85a  __TI_CINIT_Limit                    
 0000ffe4  __TI_int02                          
 0000ffe6  __TI_int03                          
 0000ffea  __TI_int05                          
@@ -1254,4 +1255,4 @@ ffffffff  __c_args__
 UNDEFED   __TI_BINIT_Base                     
 UNDEFED   __TI_BINIT_Limit                    
 
-[398 symbols]
+[399 symbols]
