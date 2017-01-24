@@ -81,7 +81,6 @@ float clock_check = -1.0;
 float clock_check2 = -1.0;
 float init_clock_check = 0.0;
 float time_correction = 0.0;
-float drift_rate = 0.0;
 float TIME_CORR_THRESHOLD = 0.001;
 float DURATION = 5.0;
 float start_time = 0.0;
@@ -112,18 +111,16 @@ __interrupt void TIMERA0_ISR(void)
 {
 	time+=Timestep;
 	if(clock_check >= 0.0) {
-//	    drift_rate = (time - clock_check) / time;
 	    clock_check += Timestep;
 	    clock_check2 += Timestep;
-	    time_correction = (time - clock_check) * 2.5;
-	    if(abs(time_correction) > TIME_CORR_THRESHOLD) {
-	        time_correction = 1000000 * TIME_CORR_THRESHOLD * ((time_correction > 0) ? 1 : -1);
-	    }
-	    else {
-	        time_correction = 1000000 * time_correction;
-	    }
-//	    TA0CCR0 = PWMPeriod - drift_rate * PWMPeriod * 1000000;
-	    TA0CCR0 = PWMPeriod - time_correction;
+	    time_correction = (clock_check - time) * 1000000 * 2.5;
+//	    if(abs(time_correction) > TIME_CORR_THRESHOLD) {
+//	        time_correction = 1000000 * TIME_CORR_THRESHOLD * ((time_correction > 0) ? 1 : -1);
+//	    }
+//	    else {
+//	        time_correction = 1000000 * time_correction;
+//	    }
+	    TA0CCR0 = PWMPeriod + time_correction;
 	    clock_check = time;
 	}
 	else {
