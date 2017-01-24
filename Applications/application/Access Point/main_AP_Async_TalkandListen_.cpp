@@ -290,7 +290,8 @@ static void proc_RXRF_Msg(linkID_t lid, uint8_t *msg, uint8_t len)
 	/* do something useful */
 	if (len)
 	{
-		toggleLED(*msg);
+		toggleLED(1);
+		tx_bytes_to_slave(msg, len);
 	}
 	return;
 }
