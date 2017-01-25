@@ -80,11 +80,12 @@ float synced_time = 0.0;           // calibrated clock, synced with AP in every 
 float time_since_msg = 0.0;        // uncalibrated ED clock, reset with every message and used to determine number of cycles since last message
 float ed_clock = 0.0;              // uncalibrated ED clock, used to test whether ED is synced to AP
 float time_since_connect = -1.0;   // first recorded time from AP after connection is established
-float time_of_last_msg = 0.0;
-int period = PWMPeriod;
-float TIME_CORR_THRESHOLD = 0.001;
-float DURATION = 5.0;
-float start_time = 0.0;
+float time_of_last_msg = 0.0;      // recorded time from AP of last message
+int period = PWMPeriod;            // variable to store and update period of TA0 (i.e. value of TA0CCR0)
+float DURATION = 5.0;              // used to send periodic messages back to AP to be printed over serial; for debugging
+float start_time = 0.0;            // used as a reference for sine function in determining pulse width (i.e. value of TA0CCR1)
+int ctr_pulse_width = 1500;
+int rad_pulse_width = 500;
 #pragma DATA_ALIGN (RadioMSG, sizeof(int));	//align to int boundary so I can do nice pointer casts to get the data that I want
 uint8_t     RadioMSG[MAX_APP_PAYLOAD];
 /*********************************/
@@ -120,7 +121,10 @@ __interrupt void TIMERA0_ISR(void)
 	    TA0CCR0 = PWMPeriod;
 	}
 	//turn on the PWM generation is we're asking for a signal
-	if (amplitude > 0) TA0CCR1=(PWMPeriod-1500)+(int)(500*amplitude*sinf(frequency*(synced_time-start_time)+phase));
+    ctr_pulse_width = 1500 * TA0CCR0 / PWMPeriod;
+    rad_pulse_width =  500 * TA0CCR0 / PWMPeriod;
+	if (amplitude > 0) TA0CCR1 = (TA0CCR0 - ctr_pulse_width)
+	        + (int)(rad_pulse_width*amplitude*sinf(frequency*(synced_time-start_time)+phase);
 	else TA0CCR1=0;
 }
 /*********************************/
