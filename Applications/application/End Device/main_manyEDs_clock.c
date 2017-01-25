@@ -76,11 +76,12 @@ addr_t lAddr = THIS_DEVICE_ADDRESS;
 float amplitude = 0.0;
 float frequency = 0.0;
 float phase = 0.0;
-float time = 0.0;
-float clock_check = -1.0;
-float clock_check2 = -1.0;
-float init_clock_check = 0.0;
-float time_correction = 0.0;
+float synced_time = 0.0;           // calibrated clock, synced with AP in every time message
+float time_since_msg = 0.0;        // uncalibrated ED clock, reset with every message and used to determine number of cycles since last message
+float ed_clock = 0.0;              // uncalibrated ED clock, used to test whether ED is synced to AP
+float time_since_connect = -1.0;   // first recorded time from AP after connection is established
+float time_of_last_msg = 0.0;
+int period = PWMPeriod;
 float TIME_CORR_THRESHOLD = 0.001;
 float DURATION = 5.0;
 float start_time = 0.0;
@@ -109,25 +110,17 @@ void InitTimer(void)
 #pragma vector=TIMERA0_VECTOR
 __interrupt void TIMERA0_ISR(void)
 {
-	time+=Timestep;
-	if(clock_check >= 0.0) {
-	    clock_check += Timestep;
-	    clock_check2 += Timestep;
-	    time_correction = (clock_check - time) * 1000000 * 2.5;
-//	    if(abs(time_correction) > TIME_CORR_THRESHOLD) {
-//	        time_correction = 1000000 * TIME_CORR_THRESHOLD * ((time_correction > 0) ? 1 : -1);
-//	    }
-//	    else {
-//	        time_correction = 1000000 * time_correction;
-//	    }
-	    TA0CCR0 = PWMPeriod + time_correction;
-	    clock_check = time;
+	synced_time += Timestep;
+	if(time_since_connect >= 0.0) {
+	    time_since_msg += Timestep;
+	    ed_clock += Timestep;
+	    TA0CCR0 = period;
 	}
 	else {
 	    TA0CCR0 = PWMPeriod;
 	}
 	//turn on the PWM generation is we're asking for a signal
-	if (amplitude > 0) TA0CCR1=(PWMPeriod-1500)+(int)(500*amplitude*sinf(frequency*(time-start_time)+phase));
+	if (amplitude > 0) TA0CCR1=(PWMPeriod-1500)+(int)(500*amplitude*sinf(frequency*(synced_time-start_time)+phase));
 	else TA0CCR1=0;
 }
 /*********************************/
@@ -225,27 +218,15 @@ void main (void)
 
 		}
 
-//		if (clock_check > DURATION + init_clock_check) {
-//		    toggleLED(2);
-//      }
-
-		if (time > DURATION + init_clock_check) {
+		if (synced_time > DURATION + time_since_connect) {
 		    toggleLED(1);
-//		    float clock_counter = clock_check - init_clock_check;
-		    float clock_counter = clock_check2 - time;
-//		    float time_counter = time - init_clock_check;
+		    float clock_counter = ed_clock - synced_time;
 		    unsigned char* clock_ind =(unsigned char*)&clock_counter;
-//		    unsigned char* time_ind  =(unsigned char*)&time_counter;
 		    clock_msg[0]=*(clock_ind+3);    //dereference the pointer and use some pointer addressing to make this work
             clock_msg[1]=*(clock_ind+2);    //dereference the pointer and use some pointer addressing to make this work
             clock_msg[2]=*(clock_ind+1);    //dereference the pointer and use some pointer addressing to make this work
             clock_msg[3]=*(clock_ind+0);    //dereference the pointer and use some pointer addressing to make this work
             SMPL_Send(sLinkID1, clock_msg, sizeof(clock_msg));
-//            clock_msg[0]=*(time_ind+3);
-//            clock_msg[1]=*(time_ind+2);
-//            clock_msg[2]=*(time_ind+1);
-//            clock_msg[3]=*(time_ind+0);
-//		    SMPL_Send(sLinkID1, clock_msg, sizeof(clock_msg));
             DURATION += 5.0;
         }
 	}
@@ -328,11 +309,18 @@ static void processMessage(linkID_t lid, uint8_t *msg, uint8_t len)
 	if ((flag == TIME_MSG) && (lid == SMPL_LINKID_USER_UUD) && len == 6)
 	{
 		BSP_ENTER_CRITICAL_SECTION(intState);	//protect from possible interrupts until we've written all values that might be used by the ISR
-		time = *(float*)(msg+2);	//jam the time parameter that we just received from the radio
-		if(clock_check < 0) {
-//		    toggleLED(1);
-		    init_clock_check = clock_check = clock_check2 = time;
+
+		synced_time = *(float*)(msg+2);	// jam the time parameter that we just received from the radio
+		if(time_since_connect < 0) {    // initialize everything if first time receiving time message
+		    time_since_connect = time_of_last_msg = ed_clock = synced_time;
+            time_since_msg = 0.0;
 		}
+		else {
+		    period = (int)((time_since_msg) / (synced_time - time_of_last_msg) * TA0CCR0);
+		    time_of_last_msg = synced_time; // resync these values
+		    time_since_msg = 0.0;
+		}
+
 		BSP_EXIT_CRITICAL_SECTION(intState);
 	}
 	else if (flag == MOT_MSG)
@@ -350,7 +338,7 @@ static void processMessage(linkID_t lid, uint8_t *msg, uint8_t len)
 		amplitude = tempAmpF;
 		frequency = tempFreqF;
 		phase = tempPhaseF;
-		start_time = time;	//update the time at which we start the sinusoid so we have unambiguous phase
+		start_time = synced_time;	//update the time at which we start the sinusoid so we have unambiguous phase
 		BSP_EXIT_CRITICAL_SECTION(intState);
 	}
 
