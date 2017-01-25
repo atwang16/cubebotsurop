@@ -82,7 +82,7 @@ float ed_clock = 0.0;              // uncalibrated ED clock, used to test whethe
 float time_since_connect = -1.0;   // first recorded time from AP after connection is established
 float time_of_last_msg = 0.0;      // recorded time from AP of last message
 int period = PWMPeriod;            // variable to store and update period of TA0 (i.e. value of TA0CCR0)
-float DURATION = 5.0;              // used to send periodic messages back to AP to be printed over serial; for debugging
+float DURATION = 60.0;              // used to send periodic messages back to AP to be printed over serial; for debugging
 float start_time = 0.0;            // used as a reference for sine function in determining pulse width (i.e. value of TA0CCR1)
 int ctr_pulse_width = 1500;
 int rad_pulse_width = 500;
@@ -124,7 +124,7 @@ __interrupt void TIMERA0_ISR(void)
     ctr_pulse_width = 1500 * TA0CCR0 / PWMPeriod;
     rad_pulse_width =  500 * TA0CCR0 / PWMPeriod;
 	if (amplitude > 0) TA0CCR1 = (TA0CCR0 - ctr_pulse_width)
-	        + (int)(rad_pulse_width*amplitude*sinf(frequency*(synced_time-start_time)+phase);
+	        + (int)(rad_pulse_width*amplitude*sinf(frequency*(synced_time-start_time)+phase));
 	else TA0CCR1=0;
 }
 /*********************************/

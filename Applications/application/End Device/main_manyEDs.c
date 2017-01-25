@@ -76,7 +76,11 @@ addr_t lAddr = THIS_DEVICE_ADDRESS;
 float amplitude = 0.0;
 float frequency = 0.0;
 float phase = 0.0;
-float time = 0.0;
+float synced_time = 0.0;           // calibrated clock, synced with AP in every time message
+float time_since_msg = 0.0;        // uncalibrated ED clock, reset with every message and used to determine number of cycles since last message
+float time_since_connect = -1.0;   // first recorded time from AP after connection is established
+float time_of_last_msg = 0.0;      // recorded time from AP of last message
+int period = PWMPeriod;            // variable to store and update period of TA0 (i.e. value of TA0CCR0)
 float start_time = 0.0;
 #pragma DATA_ALIGN (RadioMSG, sizeof(int));	//align to int boundary so I can do nice pointer casts to get the data that I want
 uint8_t     RadioMSG[MAX_APP_PAYLOAD];
@@ -90,11 +94,11 @@ void InitTimer(void)
 {
 	P2DIR |= BIT3;                            // P2.3 is output
 	P2SEL |= BIT3;                            // P2.3 is TACCR1 output
-	TA0CCR0 = (PWMPeriod);	//
-	TA0CCTL0 = CCIE;	// CCR0 interrupt enabled
-	TA0CCR1 = PWMPeriod;		// CCR is not initialized
-	TA0CCTL1 = (OUTMOD_3);	//set when we count to TACCR1, reset when we count to TACCR0
-	TA0CTL = (TASSEL_2+ID_3+MC_1+TACLR);	//SMCLK,Div=8,UP to CCR0 mode,clear counter. Timer runs at 1MHz
+	TA0CCR0 = (PWMPeriod);	                  // initialize pulse period to PWMPeriod
+	TA0CCTL0 = CCIE;                          // CCR0 interrupt enabled
+	TA0CCR1 = PWMPeriod;                      // CCR is not initialized
+	TA0CCTL1 = (OUTMOD_3);	                  // Set when we count to TACCR1, reset when we count to TACCR0
+	TA0CTL = (TASSEL_2+ID_3+MC_1+TACLR);      // SMCLK,Div=8,UP to CCR0 mode,clear counter. Timer runs at 1MHz
 }
 
 /**********************************
@@ -103,10 +107,22 @@ void InitTimer(void)
 #pragma vector=TIMERA0_VECTOR
 __interrupt void TIMERA0_ISR(void)
 {
-	time+=Timestep;
-	//turn on the PWM generation is we're asking for a signal
-	if (amplitude > 0) TA0CCR1=(PWMPeriod-1500)+(int)(500*amplitude*sinf(frequency*(time-start_time)+phase));
-	else TA0CCR1=0;
+    synced_time += Timestep;
+    if(time_since_connect >= 0.0) {
+        time_since_msg += Timestep;
+        TA0CCR0 = period;
+    }
+    else {
+        TA0CCR0 = PWMPeriod;
+    }
+    // Set new pulse width parameters based on new pulse period
+    ctr_pulse_width = 1500 * TA0CCR0 / PWMPeriod;
+    rad_pulse_width =  500 * TA0CCR0 / PWMPeriod;
+
+    //turn on PWM generation if we're asking for a signal (i.e. positive amplitude)
+    if (amplitude > 0) TA0CCR1 = (TA0CCR0 - ctr_pulse_width)
+            + (int)(rad_pulse_width*amplitude*sinf(frequency*(synced_time-start_time)+phase));
+    else TA0CCR1=0;
 }
 /*********************************/
 
@@ -282,7 +298,18 @@ static void processMessage(linkID_t lid, uint8_t *msg, uint8_t len)
 	if ((flag == TIME_MSG) && (lid == SMPL_LINKID_USER_UUD) && len == 6)
 	{
 		BSP_ENTER_CRITICAL_SECTION(intState);	//protect from possible interrupts until we've written all values that might be used by the ISR
-		time = *(float*)(msg+2);	//jam the time parameter that we just received from the radio
+
+        synced_time = *(float*)(msg+2); // jam the time parameter that we just received from the radio
+        if(time_since_connect < 0) {    // initialize everything if first time receiving time message
+            time_since_connect = time_of_last_msg = ed_clock = synced_time;
+            time_since_msg = 0.0;
+        }
+        else {
+            period = (int)((time_since_msg) / (synced_time - time_of_last_msg) * TA0CCR0);
+            time_of_last_msg = synced_time; // resync these values
+            time_since_msg = 0.0;
+        }
+
 		BSP_EXIT_CRITICAL_SECTION(intState);
 	}
 	else if (flag == MOT_MSG)
