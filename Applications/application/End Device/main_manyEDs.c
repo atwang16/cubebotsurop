@@ -19,7 +19,7 @@
   you may not use, reproduce, copy, prepare derivative works of, modify, distribute,
   perform, display or sell this Software and/or its documentation for any purpose.
 
-  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE PROVIDED “AS IS”
+  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE PROVIDED ï¿½AS ISï¿½
   WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY
   WARRANTY OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
   IN NO EVENT SHALL TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -81,6 +81,8 @@ float time_since_msg = 0.0;        // uncalibrated ED clock, reset with every me
 float time_since_connect = -1.0;   // first recorded time from AP after connection is established
 float time_of_last_msg = 0.0;      // recorded time from AP of last message
 int period = PWMPeriod;            // variable to store and update period of TA0 (i.e. value of TA0CCR0)
+int ctr_pulse_width = 1500;
+int rad_pulse_width = 500;
 float start_time = 0.0;
 #pragma DATA_ALIGN (RadioMSG, sizeof(int));	//align to int boundary so I can do nice pointer casts to get the data that I want
 uint8_t     RadioMSG[MAX_APP_PAYLOAD];
@@ -294,14 +296,14 @@ static void processMessage(linkID_t lid, uint8_t *msg, uint8_t len)
 	unsigned int flag=0;
 	//parse the received message and set the PWM numbers accordingly
 	flag=*(unsigned int*)(msg+0);
-	//be sure the inital message alignment is what we expect, that it matches an expected message type, and it's only 6 bytes
+	//be sure the initial message alignment is what we expect, that it matches an expected message type, and it's only 6 bytes
 	if ((flag == TIME_MSG) && (lid == SMPL_LINKID_USER_UUD) && len == 6)
 	{
 		BSP_ENTER_CRITICAL_SECTION(intState);	//protect from possible interrupts until we've written all values that might be used by the ISR
 
         synced_time = *(float*)(msg+2); // jam the time parameter that we just received from the radio
         if(time_since_connect < 0) {    // initialize everything if first time receiving time message
-            time_since_connect = time_of_last_msg = ed_clock = synced_time;
+            time_since_connect = time_of_last_msg = synced_time;
             time_since_msg = 0.0;
         }
         else {
@@ -314,7 +316,7 @@ static void processMessage(linkID_t lid, uint8_t *msg, uint8_t len)
 	}
 	else if (flag == MOT_MSG)
 	{
-		int offset=6*(lAddr.addr[0]-1)+2;	//use this as an index into the received byte array. the 6 corresponds to 6 bytes of data per motor and the 2 accounds for the 2 bytes of flag data
+		int offset=6*(lAddr.addr[0]-1)+2;	//use this as an index into the received byte array. the 6 corresponds to 6 bytes of data per motor and the 2 accounts for the 2 bytes of flag data
 		tempAmp=*(unsigned int*)(msg+offset);
 		tempAmpF=((float)tempAmp)/500;	//convert to float and rescale since we prescaled to send as an int
 		tempFreq=*(unsigned int*)(msg+offset+2);
@@ -322,12 +324,12 @@ static void processMessage(linkID_t lid, uint8_t *msg, uint8_t len)
 		tempPhase=*(unsigned int*)(msg+offset+4);
 		tempPhaseF=((float)tempPhase)/500;
 
-		//finally, copy to the system-level values and reset the time
-		BSP_ENTER_CRITICAL_SECTION(intState);	//protect from possible interrupts until we've written all values that might be used by the ISR
+		// Copy to the system-level values and reset the time
+		BSP_ENTER_CRITICAL_SECTION(intState);    // protect from possible interrupts until we've written all values that might be used by the ISR
 		amplitude = tempAmpF;
 		frequency = tempFreqF;
 		phase = tempPhaseF;
-		start_time = time;	//update the time at which we start the sinusoid so we have unambiguous phase
+		start_time = synced_time;                // update the time at which we start the sinusoid so we have unambiguous phase
 		BSP_EXIT_CRITICAL_SECTION(intState);
 	}
 

@@ -19,7 +19,7 @@
   you may not use, reproduce, copy, prepare derivative works of, modify, distribute,
   perform, display or sell this Software and/or its documentation for any purpose.
 
-  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE PROVIDED “AS IS”
+  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE PROVIDED ï¿½AS ISï¿½
   WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY
   WARRANTY OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
   IN NO EVENT SHALL TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -231,7 +231,7 @@ smplStatus_t SMPL_LinkListen(linkID_t *linkID)
  *
  * output parameters
  *
- * @return   Status of operation. On a filaure the frame buffer is discarded
+ * @return   Status of operation. On a failure the frame buffer is discarded
  *           and the Send call must be redone by the app.
  *             SMPL_SUCCESS
  *             SMPL_BAD_PARAM    No valid Connection Table entry for Link ID
@@ -258,7 +258,7 @@ smplStatus_t SMPL_Send(linkID_t lid, uint8_t *msg, uint8_t len)
  *
  * output parameters
  *
- * @return   Status of operation. On a filaure the frame buffer is discarded
+ * @return   Status of operation. On a failure the frame buffer is discarded
  *           and the Send call must be redone by the app.
  *             SMPL_SUCCESS
  *             SMPL_BAD_PARAM    No valid Connection Table entry for Link ID
