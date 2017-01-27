@@ -150,13 +150,12 @@ void main (void)
 #endif
 
 	//init radio, register callback and try to join. Enables GIE at end
-//	while (SMPL_SUCCESS != SMPL_Init(sCB))
-//	{
-//		toggleLED(1);	//toggle LEDs during Join attempt
-//		toggleLED(2);
-//		SPIN_ABOUT_A_SECOND;
-//	}
-	SMPL_Init(0);
+	while (SMPL_SUCCESS != SMPL_Init(sCB))
+	{
+		toggleLED(1);	//toggle LEDs during Join attempt
+		toggleLED(2);
+		SPIN_ABOUT_A_SECOND;
+	}
 
 	/* LEDs on solid to indicate successful join. */
 	if (!BSP_LED2_IS_ON())
@@ -175,8 +174,8 @@ void main (void)
 	{
 
 		// Have we received a broadcast msg?
-//		if (RxBroadcastSem)
-//		{
+		if (RxBroadcastSem)
+		{
 			uint8_t	len;
 			if (SMPL_SUCCESS == SMPL_Receive(SMPL_LINKID_USER_UUD, RadioMSG, &len))
 			{
@@ -187,7 +186,7 @@ void main (void)
 				BSP_EXIT_CRITICAL_SECTION(intState);
 			}
 
-//		}
+		}
 
 		//is it time to send a msg?
 		if (TxPeerFrameSem)
