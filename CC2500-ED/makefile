@@ -10,7 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./Applications/application/End Device/main_manyEDs_clock.obj" \
+"./Applications/application/End Device/main_manyEDs.obj" \
 "./Components/bsp/bsp.obj" \
 "./Components/mrfi/mrfi.obj" \
 "./Components/simpliciti/nwk/nwk.obj" \
@@ -181,8 +181,8 @@ cubebots.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Applications\application\End Device\main_manyEDs_clock.obj" "Components\bsp\bsp.obj" "Components\mrfi\mrfi.obj" "Components\simpliciti\nwk\nwk.obj" "Components\simpliciti\nwk\nwk_QMgmt.obj" "Components\simpliciti\nwk\nwk_api.obj" "Components\simpliciti\nwk\nwk_frame.obj" "Components\simpliciti\nwk\nwk_globals.obj" "Components\simpliciti\nwk_applications\nwk_freq.obj" "Components\simpliciti\nwk_applications\nwk_ioctl.obj" "Components\simpliciti\nwk_applications\nwk_join.obj" "Components\simpliciti\nwk_applications\nwk_link.obj" "Components\simpliciti\nwk_applications\nwk_mgmt.obj" "Components\simpliciti\nwk_applications\nwk_ping.obj" "Components\simpliciti\nwk_applications\nwk_security.obj" "utils\UART_HANDLER.obj" "utils\utils.obj" 
-	-$(RM) "Applications\application\End Device\main_manyEDs_clock.d" "Components\bsp\bsp.d" "Components\mrfi\mrfi.d" "Components\simpliciti\nwk\nwk.d" "Components\simpliciti\nwk\nwk_QMgmt.d" "Components\simpliciti\nwk\nwk_api.d" "Components\simpliciti\nwk\nwk_frame.d" "Components\simpliciti\nwk\nwk_globals.d" "Components\simpliciti\nwk_applications\nwk_freq.d" "Components\simpliciti\nwk_applications\nwk_ioctl.d" "Components\simpliciti\nwk_applications\nwk_join.d" "Components\simpliciti\nwk_applications\nwk_link.d" "Components\simpliciti\nwk_applications\nwk_mgmt.d" "Components\simpliciti\nwk_applications\nwk_ping.d" "Components\simpliciti\nwk_applications\nwk_security.d" 
+	-$(RM) "Applications\application\End Device\main_manyEDs.obj" "Components\bsp\bsp.obj" "Components\mrfi\mrfi.obj" "Components\simpliciti\nwk\nwk.obj" "Components\simpliciti\nwk\nwk_QMgmt.obj" "Components\simpliciti\nwk\nwk_api.obj" "Components\simpliciti\nwk\nwk_frame.obj" "Components\simpliciti\nwk\nwk_globals.obj" "Components\simpliciti\nwk_applications\nwk_freq.obj" "Components\simpliciti\nwk_applications\nwk_ioctl.obj" "Components\simpliciti\nwk_applications\nwk_join.obj" "Components\simpliciti\nwk_applications\nwk_link.obj" "Components\simpliciti\nwk_applications\nwk_mgmt.obj" "Components\simpliciti\nwk_applications\nwk_ping.obj" "Components\simpliciti\nwk_applications\nwk_security.obj" "utils\UART_HANDLER.obj" "utils\utils.obj" 
+	-$(RM) "Applications\application\End Device\main_manyEDs.d" "Components\bsp\bsp.d" "Components\mrfi\mrfi.d" "Components\simpliciti\nwk\nwk.d" "Components\simpliciti\nwk\nwk_QMgmt.d" "Components\simpliciti\nwk\nwk_api.d" "Components\simpliciti\nwk\nwk_frame.d" "Components\simpliciti\nwk\nwk_globals.d" "Components\simpliciti\nwk_applications\nwk_freq.d" "Components\simpliciti\nwk_applications\nwk_ioctl.d" "Components\simpliciti\nwk_applications\nwk_join.d" "Components\simpliciti\nwk_applications\nwk_link.d" "Components\simpliciti\nwk_applications\nwk_mgmt.d" "Components\simpliciti\nwk_applications\nwk_ping.d" "Components\simpliciti\nwk_applications\nwk_security.d" 
 	-$(RM) "utils\UART_HANDLER.d" "utils\utils.d" 
 	-@echo 'Finished clean'
 	-@echo ' '

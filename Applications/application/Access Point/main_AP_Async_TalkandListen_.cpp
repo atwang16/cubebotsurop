@@ -173,27 +173,28 @@ void main (void)
 	/* main work loop */
 	while (1)
 	{
-		//Wait for the Join semaphore to be set by the receipt of a Join frame from a device that supports an End Device.
-		if (sJoinSem && (sNumCurrentPeers < NUM_CONNECTIONS))
-		{
-			/* listen for a new connection */
-			while (1)
-			{
-				if (SMPL_SUCCESS == SMPL_LinkListen(&sLID[sNumCurrentPeers]))
-				{
-					break;
-				}
-				/* Implement fail-to-link policy here. otherwise, listen again. */
-			}
-			sNumCurrentPeers++;
-			BSP_ENTER_CRITICAL_SECTION(intState);
-			sJoinSem--;
-			BSP_EXIT_CRITICAL_SECTION(intState);
-		}
+//		//Wait for the Join semaphore to be set by the receipt of a Join frame from a device that supports an End Device.
+//		if (sJoinSem && (sNumCurrentPeers < NUM_CONNECTIONS))
+//		{
+//			/* listen for a new connection */
+//			while (1)
+//			{
+//				if (SMPL_SUCCESS == SMPL_LinkListen(&sLID[sNumCurrentPeers]))
+//				{
+//					break;
+//				}
+//				/* Implement fail-to-link policy here. otherwise, listen again. */
+//			}
+//			sNumCurrentPeers++;
+//			BSP_ENTER_CRITICAL_SECTION(intState);
+//			sJoinSem--;
+//			BSP_EXIT_CRITICAL_SECTION(intState);
+//		}
 
 		//is it time to send a time msg? Send same msg to all peers via broadcast
 		if (time>next_time_Jam)
 		{
+		    toggleLED(1);
 			TX_Time_msg[0]=0xFE;
 			TX_Time_msg[1]=0xFF;
 			unsigned char* ind=(unsigned char*)&time;

@@ -81,6 +81,8 @@ float time_since_msg = 0.0;        // uncalibrated ED clock, reset with every me
 float time_since_connect = -1.0;   // first recorded time from AP after connection is established
 float time_of_last_msg = 0.0;      // recorded time from AP of last message
 int period = PWMPeriod;            // variable to store and update period of TA0 (i.e. value of TA0CCR0)
+int ctr_pulse_width = 1500;
+int rad_pulse_width =  500;
 float start_time = 0.0;
 #pragma DATA_ALIGN (RadioMSG, sizeof(int));	//align to int boundary so I can do nice pointer casts to get the data that I want
 uint8_t     RadioMSG[MAX_APP_PAYLOAD];
@@ -148,12 +150,13 @@ void main (void)
 #endif
 
 	//init radio, register callback and try to join. Enables GIE at end
-	while (SMPL_SUCCESS != SMPL_Init(sCB))
-	{
-		toggleLED(1);	//toggle LEDs during Join attempt
-		toggleLED(2);
-		SPIN_ABOUT_A_SECOND;
-	}
+//	while (SMPL_SUCCESS != SMPL_Init(sCB))
+//	{
+//		toggleLED(1);	//toggle LEDs during Join attempt
+//		toggleLED(2);
+//		SPIN_ABOUT_A_SECOND;
+//	}
+	SMPL_Init(0);
 
 	/* LEDs on solid to indicate successful join. */
 	if (!BSP_LED2_IS_ON())
@@ -166,24 +169,25 @@ void main (void)
 	}
 
 	/* Unconditional link to AP which is listening due to successful join. */
-//	linkTo();
+	linkTo();
 
 	while (1)
 	{
 
 		// Have we received a broadcast msg?
-		if (RxBroadcastSem)
-		{
+//		if (RxBroadcastSem)
+//		{
 			uint8_t	len;
 			if (SMPL_SUCCESS == SMPL_Receive(SMPL_LINKID_USER_UUD, RadioMSG, &len))
 			{
+			    toggleLED(1);
 				processMessage(SMPL_LINKID_USER_UUD, RadioMSG, len);
 				BSP_ENTER_CRITICAL_SECTION(intState);
 				RxBroadcastSem--;
 				BSP_EXIT_CRITICAL_SECTION(intState);
 			}
 
-		}
+//		}
 
 		//is it time to send a msg?
 		if (TxPeerFrameSem)
@@ -210,7 +214,6 @@ void main (void)
 			uint8_t	len;
 			if (SMPL_SUCCESS == SMPL_Receive(sLinkID1, RadioMSG, &len))
 			{
-			    toggleLED(1); // debugging indicator
 				processMessage(sLinkID1, RadioMSG, len);
 				BSP_ENTER_CRITICAL_SECTION(intState);
 				RxPeerFrameSem--;
@@ -227,26 +230,29 @@ static void linkTo()
 {
 
 	/* Keep trying to link... */
-	while (SMPL_SUCCESS != SMPL_Link(&sLinkID1))
-	{
-		toggleLED(1);
-		toggleLED(2);
-		SPIN_ABOUT_A_SECOND;
-	}
+//	while (SMPL_SUCCESS != SMPL_Link(&sLinkID1))
+//	{
+//		toggleLED(1);
+//		toggleLED(2);
+//		SPIN_ABOUT_A_SECOND;
+//	}
 
 	/* Turn off LEDs after successful Link */
-	if (BSP_LED2_IS_ON())
-	{
-		toggleLED(2);
-	}
-	if (BSP_LED1_IS_ON())
-	{
-		toggleLED(1);
-	}
+//	if (BSP_LED2_IS_ON())
+//	{
+//		toggleLED(2);
+//	}
+//	if (BSP_LED1_IS_ON())
+//	{
+//		toggleLED(1);
+//	}
 
-	//for now just turn the radio on
-	SMPL_Ioctl( IOCTL_OBJ_RADIO, IOCTL_ACT_RADIO_RXON, 0);
+//	//for now just turn the radio on
+//	SMPL_Ioctl( IOCTL_OBJ_RADIO, IOCTL_ACT_RADIO_RXON, 0);
 
+    SMPL_Ioctl( IOCTL_OBJ_RADIO, IOCTL_ACT_RADIO_AWAKE, 0);
+    /* turn on RX. default is RX off. */
+    SMPL_Ioctl( IOCTL_OBJ_RADIO, IOCTL_ACT_RADIO_RXON, 0);
 }
 
 
@@ -302,7 +308,7 @@ static void processMessage(linkID_t lid, uint8_t *msg, uint8_t len)
 
         synced_time = *(float*)(msg+2); // jam the time parameter that we just received from the radio
         if(time_since_connect < 0) {    // initialize everything if first time receiving time message
-            time_since_connect = time_of_last_msg = ed_clock = synced_time;
+            time_since_connect = time_of_last_msg = synced_time;
             time_since_msg = 0.0;
         }
         else {
@@ -323,12 +329,12 @@ static void processMessage(linkID_t lid, uint8_t *msg, uint8_t len)
 		tempPhase=*(unsigned int*)(msg+offset+4);
 		tempPhaseF=((float)tempPhase)/500;
 
-		//finally, copy to the system-level values and reset the time
-		BSP_ENTER_CRITICAL_SECTION(intState);	//protect from possible interrupts until we've written all values that might be used by the ISR
+		// finally, copy to the system-level values and reset the time
+		BSP_ENTER_CRITICAL_SECTION(intState);	// protect from possible interrupts until we've written all values that might be used by the ISR
 		amplitude = tempAmpF;
 		frequency = tempFreqF;
 		phase = tempPhaseF;
-		start_time = time;	//update the time at which we start the sinusoid so we have unambiguous phase
+		start_time = synced_time;               // update the time at which we start the sinusoid so we have unambiguous phase
 		BSP_EXIT_CRITICAL_SECTION(intState);
 	}
 
