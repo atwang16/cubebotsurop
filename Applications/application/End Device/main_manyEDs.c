@@ -166,7 +166,7 @@ void main (void)
 	}
 
 	/* Unconditional link to AP which is listening due to successful join. */
-	linkTo();
+//	linkTo();
 
 	while (1)
 	{
@@ -210,6 +210,7 @@ void main (void)
 			uint8_t	len;
 			if (SMPL_SUCCESS == SMPL_Receive(sLinkID1, RadioMSG, &len))
 			{
+			    toggleLED(1); // debugging indicator
 				processMessage(sLinkID1, RadioMSG, len);
 				BSP_ENTER_CRITICAL_SECTION(intState);
 				RxPeerFrameSem--;

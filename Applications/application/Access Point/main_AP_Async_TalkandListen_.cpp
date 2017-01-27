@@ -221,7 +221,7 @@ void main (void)
 			BSP_ENTER_CRITICAL_SECTION(intState);
 			TxPeerFrameSem--;
 			BSP_EXIT_CRITICAL_SECTION(intState);
-			TX_msg_Len = 0;	//clear the message length after an assumed TX event
+			TX_msg_Len = 0;	// clear the message length after an assumed TX event
 		}
 
 		// Have we received a frame on one of the ED connections?
@@ -291,7 +291,7 @@ static void proc_RXRF_Msg(linkID_t lid, uint8_t *msg, uint8_t len)
 	if (len)
 	{
 		toggleLED(1);
-		tx_bytes_to_slave(msg, len);
+		tx_bytes_to_slave(msg, len); // print ED message to UART
 	}
 	return;
 }
