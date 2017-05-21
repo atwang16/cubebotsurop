@@ -1,0 +1,1201 @@
+******************************************************************************
+                  MSP430 Linker Unix v16.9.0                   
+******************************************************************************
+>> Linked Fri Jan 27 13:20:46 2017
+
+OUTPUT FILE NAME:   <cubebots.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 0000ad76
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SFR                   00000000   00000010  00000000  00000010  RWIX
+  PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
+  PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
+  RAM                   00000200   00000400  000003eb  00000015  RWIX
+  INFOD                 00001000   00000040  00000000  00000040  RWIX
+  INFOC                 00001040   00000040  00000000  00000040  RWIX
+  INFOB                 00001080   00000040  00000000  00000040  RWIX
+  INFOA                 000010c0   00000040  00000000  00000040  RWIX
+  FLASH                 00008000   00007fde  0000313d  00004ea1  RWIX
+  BSLSIGNATURE          0000ffde   00000002  00000002  00000000  RWIX  ffff 
+  INT00                 0000ffe0   00000002  00000000  00000002  RWIX
+  INT01                 0000ffe2   00000002  00000000  00000002  RWIX
+  INT02                 0000ffe4   00000002  00000002  00000000  RWIX
+  INT03                 0000ffe6   00000002  00000002  00000000  RWIX
+  INT04                 0000ffe8   00000002  00000000  00000002  RWIX
+  INT05                 0000ffea   00000002  00000002  00000000  RWIX
+  INT06                 0000ffec   00000002  00000002  00000000  RWIX
+  INT07                 0000ffee   00000002  00000002  00000000  RWIX
+  INT08                 0000fff0   00000002  00000002  00000000  RWIX
+  INT09                 0000fff2   00000002  00000002  00000000  RWIX
+  INT10                 0000fff4   00000002  00000002  00000000  RWIX
+  INT11                 0000fff6   00000002  00000000  00000002  RWIX
+  INT12                 0000fff8   00000002  00000002  00000000  RWIX
+  INT13                 0000fffa   00000002  00000002  00000000  RWIX
+  INT14                 0000fffc   00000002  00000002  00000000  RWIX
+  RESET                 0000fffe   00000002  00000002  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.bss       0    00000200    00000332     UNINITIALIZED
+                  00000200    0000018c     nwk_QMgmt.obj (.bss:sInFrameQ)
+                  0000038c    00000084     nwk_QMgmt.obj (.bss:sOutFrameQ)
+                  00000410    00000040     mrfi.obj (.bss:mrfiIncomingPacket)
+                  00000450    0000003c     (.common:RX_ser_buf)
+                  0000048c    0000003c     (.common:TX_ser_buf)
+                  000004c8    00000032     (.common:TX_msg)
+                  000004fa    00000012     UART_HANDLER.obj (.bss:UART_RX_BUFFER)
+                  0000050c    00000012     UART_HANDLER.obj (.bss:UART_TX_BUFFER)
+                  0000051e    00000006     (.common:TX_Time_msg)
+                  00000524    00000004     main_AP_Async_TalkandListen_.obj (.bss)
+                  00000528    00000004     nwk_globals.obj (.bss:sAPAddress)
+                  0000052c    00000004     nwk_globals.obj (.bss:sMyRAMAddress)
+                  00000530    00000002     nwk_link.obj (.bss:sServiceLinkID)
+
+.data      0    00000532    00000069     UNINITIALIZED
+                  00000532    0000002b     nwk.obj (.data:sPersistInfo)
+                  0000055d    00000001     bsp.obj (.data)
+                  0000055e    0000000b     nwk_join.obj (.data)
+                  00000569    00000001     nwk_api.obj (.data)
+                  0000056a    0000000a     main_AP_Async_TalkandListen_.obj (.data)
+                  00000574    00000009     mrfi.obj (.data)
+                  0000057d    00000001     nwk_globals.obj (.data)
+                  0000057e    00000008     nwk_frame.obj (.data)
+                  00000586    00000007     nwk_link.obj (.data)
+                  0000058d    00000004     main_AP_Async_TalkandListen_.obj (.data:lAddr)
+                  00000591    00000001     nwk_mgmt.obj (.data)
+                  00000592    00000004     mrfi.obj (.data:mrfiRxFilterAddr)
+                  00000596    00000003     nwk_mgmt.obj (.data:sSFMarker)
+                  00000599    00000001     nwk_ping.obj (.data)
+                  0000059a    00000001     main_AP_Async_TalkandListen_.obj (.data:sLID)
+
+.stack     0    000005b0    00000050     UNINITIALIZED
+                  000005b0    00000002     rts430_eabi.lib : boot.obj (.stack)
+                  000005b2    0000004e     --HOLE--
+
+.text      0    00008000    000030b8     
+                  00008000    000002e8     rts430_eabi.lib : addd.obj (.text:__mspabi_addd)
+                  000082e8    00000260                     : frcaddd.obj (.text:__TI_frcaddd)
+                  00008548    000001c6     mrfi.obj (.text:MRFI_Init)
+                  0000870e    000001b2     main_AP_Async_TalkandListen_.obj (.text:main)
+                  000088c0    000001a4     nwk_link.obj (.text:smpl_send_link_reply)
+                  00008a64    0000016c     nwk_QMgmt.obj (.text:nwk_QfindOldest)
+                  00008bd0    0000014e     nwk_frame.obj (.text:dispatchFrame)
+                  00008d1e    00000132     rts430_eabi.lib : fs_add.obj (.text)
+                  00008e50    0000010e     nwk_join.obj (.text:smpl_send_join_reply)
+                  00008f5e    00000102     mrfi.obj (.text:MRFI_Transmit)
+                  00009060    000000da     mrfi.obj (.text:Mrfi_SyncPinRxIsr)
+                  0000913a    000000d2     UART_HANDLER.obj (.text:__sti___16_UART_HANDLER_cpp_3daaade3)
+                  0000920c    000000cc     nwk.obj (.text:nwk_allocateLocalRxPort)
+                  000092d8    000000be     rts430_eabi.lib : renormd.obj (.text:__TI_renormd)
+                  00009396    000000bc     nwk_api.obj (.text:SMPL_Ioctl)
+                  00009452    000000b2     nwk_frame.obj (.text:nwk_retrieveFrame)
+                  00009504    000000ac     nwk_frame.obj (.text:nwk_SendEmptyPollRspFrame)
+                  000095b0    000000a0     nwk_frame.obj (.text:isDupSandFFrame)
+                  00009650    0000009e     nwk_frame.obj (.text:nwk_buildFrame)
+                  000096ee    0000009c     nwk_api.obj (.text:SMPL_SendOpt)
+                  0000978a    00000092     nwk_mgmt.obj (.text:send_poll_reply)
+                  0000981c    0000008c     rts430_eabi.lib : cvtdf.obj (.text:__mspabi_cvtdf)
+                  000098a8    00000086     nwk_QMgmt.obj (.text:nwk_QfindSlot)
+                  0000992e    00000086     mrfi.obj (.text:spiBurstFifoAccess)
+                  000099b4    00000084     nwk.obj (.text:nwk_nwkInit)
+                  00009a38    0000007c     rts430_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00009ab4    0000007c     nwk_frame.obj (.text:nwk_getSandFFrame)
+                  00009b30    0000007c     nwk_ioctl.obj (.text:nwk_radioControl)
+                  00009bac    00000076     nwk_api.obj (.text:SMPL_LinkListen)
+                  00009c22    00000072     rts430_eabi.lib : cvtfd.obj (.text:__mspabi_cvtfd)
+                  00009c94    0000006e                     : autoinit.obj (.text:_auto_init)
+                  00009d02    00000066     UART_HANDLER.obj (.text:_Z9Init_UARTv)
+                  00009d68    00000064     nwk.obj (.text:nwk_isConnectionValid)
+                  00009dcc    00000064     nwk.obj (.text:nwk_saveJoinedDevice)
+                  00009e30    0000005c     rts430_eabi.lib : lsr32.obj (.text:l_lsr_const)
+                  00009e8c    0000005a                     : cpy_tbl.obj (.text:copy_in)
+                  00009ee6    00000058                     : div32u.obj (.text)
+                  00009f3e    00000056     main_AP_Async_TalkandListen_.obj (.text:_Z11TIMERA0_ISRv)
+                  00009f94    00000054     mrfi.obj (.text:MRFI_WakeUp)
+                  00009fe8    00000054     nwk_ioctl.obj (.text:nwk_rawSend)
+                  0000a03c    0000004c     nwk_api.obj (.text:SMPL_Receive)
+                  0000a088    0000004c     rts430_eabi.lib : lsr16.obj (.text)
+                  0000a0d4    0000004a     mrfi.obj (.text:mrfiSpiCmdStrobe)
+                  0000a11e    0000004a     nwk.obj (.text:nwk_getNextConnection)
+                  0000a168    0000004a     rts430_eabi.lib : fs_cmp.obj (.text)
+                  0000a1b2    00000048     nwk_mgmt.obj (.text:nwk_processMgmt)
+                  0000a1fa    00000046     mrfi.obj (.text:MRFI_RxAddrIsFiltered)
+                  0000a240    00000046     nwk_ping.obj (.text:smpl_send_ping_reply)
+                  0000a286    00000044     mrfi.obj (.text:MRFI_Rssi)
+                  0000a2ca    00000044     UART_HANDLER.obj (.text:_Z17tx_bytes_to_slavePhi)
+                  0000a30e    00000044     mrfi.obj (.text:spiRegAccess)
+                  0000a352    00000042     main_AP_Async_TalkandListen_.obj (.text:_Z10ParseRXCmdi)
+                  0000a394    00000040     nwk.obj (.text:nwk_findAlreadyJoined)
+                  0000a3d4    00000040     nwk.obj (.text:nwk_isLinkDuplicate)
+                  0000a414    00000040     nwk_join.obj (.text:nwk_isSandFClient)
+                  0000a454    0000003e     nwk.obj (.text:initializeConnection)
+                  0000a492    0000003e     rts430_eabi.lib : asr32.obj (.text:l_asr_const)
+                  0000a4d0    0000003e                     : lsl32.obj (.text:l_lsl_const)
+                  0000a50e    0000003e     nwk_link.obj (.text:nwk_getLocalLinkID)
+                  0000a54c    0000003e     nwk_join.obj (.text:nwk_processJoin)
+                  0000a58a    0000003c     nwk.obj (.text:nwk_putNumObjectIntoMsg)
+                  0000a5c6    0000003a     UART_HANDLER.obj (.text:_Z13USCIAB0TX_ISRv)
+                  0000a600    0000003a     nwk.obj (.text:nwk_isValidReply)
+                  0000a63a    0000003a     nwk_join.obj (.text:nwk_joinInit)
+                  0000a674    0000003a     nwk_frame.obj (.text:nwk_replayFrame)
+                  0000a6ae    00000036     nwk_QMgmt.obj (.text:nwk_QadjustOrder)
+                  0000a6e4    00000034     mrfi.obj (.text:MRFI_SetRFPwr)
+                  0000a718    00000034     mrfi.obj (.text:mrfiSpiInit)
+                  0000a74c    00000034     nwk_ioctl.obj (.text:nwk_deviceAddress)
+                  0000a780    00000032     mrfi.obj (.text:MRFI_SetLogicalChannel)
+                  0000a7b2    00000032     nwk.obj (.text:nwk_getConnInfo)
+                  0000a7e4    00000032     nwk_link.obj (.text:nwk_linkInit)
+                  0000a816    00000030     nwk_ping.obj (.text:nwk_processPing)
+                  0000a846    00000030     nwk_ioctl.obj (.text:nwk_rawReceive)
+                  0000a876    00000030     nwk_frame.obj (.text:nwk_sendFrame)
+                  0000a8a6    0000002e     mrfi.obj (.text:Mrfi_CalculateRssi)
+                  0000a8d4    0000002e     UART_HANDLER.obj (.text:_Z13USCIAB0RX_ISRv)
+                  0000a902    0000002e     nwk_link.obj (.text:nwk_processLink)
+                  0000a930    0000002c     mrfi.obj (.text:Mrfi_DelayUsec)
+                  0000a95c    0000002c     mrfi.obj (.text:Mrfi_RxModeOff)
+                  0000a988    0000002c     nwk_api.obj (.text:SMPL_Init)
+                  0000a9b4    0000002c     nwk_link.obj (.text:handleLinkRequest)
+                  0000a9e0    0000002c     nwk.obj (.text:map_lid2idx)
+                  0000aa0c    0000002c     nwk.obj (.text:nwk_checkAppMsgTID)
+                  0000aa38    0000002c     rts430_eabi.lib : asr16.obj (.text)
+                  0000aa64    0000002c                     : div16s.obj (.text)
+                  0000aa90    0000002c                     : lsl16.obj (.text)
+                  0000aabc    0000002a     nwk.obj (.text:nwk_checkConnInfo)
+                  0000aae6    00000026     mrfi.obj (.text:MRFI_Sleep)
+                  0000ab0c    00000026     mrfi.obj (.text:Mrfi_RandomBackoffDelay)
+                  0000ab32    00000026     nwk_ioctl.obj (.text:nwk_connectionControl)
+                  0000ab58    00000026     nwk_frame.obj (.text:nwk_frameInit)
+                  0000ab7e    00000026     nwk_globals.obj (.text:nwk_globalsInit)
+                  0000aba4    00000026     rts430_eabi.lib : mult32.obj (.text)
+                  0000abca    00000022     mrfi.obj (.text:MRFI_RxOn)
+                  0000abec    00000022     rts430_eabi.lib : memcmp.obj (.text:memcmp)
+                  0000ac0e    00000020     bsp.obj (.text:BSP_Init)
+                  0000ac2e    00000020     bsp.obj (.text:BSP_InitBoard)
+                  0000ac4e    00000020     nwk_frame.obj (.text:MRFI_RxCompleteISR)
+                  0000ac6e    00000020     mrfi.obj (.text:MRFI_RxIdle)
+                  0000ac8e    00000020     rts430_eabi.lib : memmov.obj (.text:memmove)
+                  0000acae    0000001e     bsp.obj (.text:BSP_Delay)
+                  0000accc    0000001e     mrfi.obj (.text:mrfiSpiReadReg)
+                  0000acea    0000001e     nwk_QMgmt.obj (.text:nwk_QInit)
+                  0000ad08    0000001c     mrfi.obj (.text:MRFI_GpioIsr)
+                  0000ad24    0000001c     main_AP_Async_TalkandListen_.obj (.text:__sti___32_main_AP_Async_TalkandListen__cpp_time)
+                  0000ad40    0000001c     nwk_globals.obj (.text:nwk_setMyAddress)
+                  0000ad5c    0000001a     mrfi.obj (.text:BSP_GpioPort1Isr)
+                  0000ad76    0000001a     rts430_eabi.lib : boot_special.obj (.text:_c_int00_noargs_noexit)
+                  0000ad90    0000001a     mrfi.obj (.text:mrfiSpiWriteReg)
+                  0000adaa    00000018     mrfi.obj (.text:MRFI_DelayMs)
+                  0000adc2    00000018     nwk_join.obj (.text:handleJoinRequest)
+                  0000adda    00000018     nwk_mgmt.obj (.text:nwk_mgmtInit)
+                  0000adf2    00000016     mrfi.obj (.text:MRFI_RandomByte)
+                  0000ae08    00000016     mrfi.obj (.text:Mrfi_RxModeOn)
+                  0000ae1e    00000016     main_AP_Async_TalkandListen_.obj (.text:_Z13proc_RXRF_MsghPhh)
+                  0000ae34    00000016     rts430_eabi.lib : div16u.obj (.text)
+                  0000ae4a    00000014     main_AP_Async_TalkandListen_.obj (.text:_Z9InitTimerv)
+                  0000ae5e    00000014     main_AP_Async_TalkandListen_.obj (.text:_Z9toggleLEDh)
+                  0000ae72    00000014     rts430_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  0000ae86    00000014     nwk_api.obj (.text:ioctlPreInitAccessIsOK)
+                  0000ae9a    00000014     rts430_eabi.lib : memset.obj (.text:memset)
+                  0000aeae    00000014     nwk_ioctl.obj (.text:nwk_joinContext)
+                  0000aec2    00000014     rts430_eabi.lib : mult16.obj (.text)
+                  0000aed6    00000012     bsp.obj (.text:BSP_InitLeds)
+                  0000aee8    00000012     main_AP_Async_TalkandListen_.obj (.text:_Z3sCBh)
+                  0000aefa    00000012     rts430_eabi.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  0000af0c    00000012                     : lsr32.obj (.text:l_lsr)
+                  0000af1e    00000012                     : memcpy.obj (.text:memcpy)
+                  0000af30    00000012     nwk_link.obj (.text:nwk_getLinkToken)
+                  0000af42    00000012     nwk_globals.obj (.text:nwk_getMyAddress)
+                  0000af54    00000012     nwk_link.obj (.text:nwk_setLinkToken)
+                  0000af66    00000010     rts430_eabi.lib : asr32.obj (.text:l_asr)
+                  0000af76    00000010                     : lsl32.obj (.text:l_lsl)
+                  0000af86    00000010     nwk_QMgmt.obj (.text:nwk_getQ)
+                  0000af96    00000010     rts430_eabi.lib : epilog.obj (.text)
+                  0000afa6    0000000e     mrfi.obj (.text:MRFI_Receive)
+                  0000afb4    0000000e     mrfi.obj (.text:mrfiSpiWriteTxFifo)
+                  0000afc2    0000000e     nwk.obj (.text:nwk_getNumObjectFromMsg)
+                  0000afd0    0000000e     nwk_join.obj (.text:nwk_setJoinContext)
+                  0000afde    0000000e     nwk_link.obj (.text:nwk_setListenContext)
+                  0000afec    0000000c     mrfi.obj (.text:MRFI_PostKillSem)
+                  0000aff8    0000000c     nwk_ping.obj (.text:handlePingRequest)
+                  0000b004    0000000c     mrfi.obj (.text:mrfiSpiReadRxFifo)
+                  0000b010    0000000c     nwk_mgmt.obj (.text:smpl_send_mgmt_reply)
+                  0000b01c    0000000a     bsp.obj (.text:BSP_InitButtons)
+                  0000b026    0000000a     bsp.obj (.text:BSP_InitDrivers)
+                  0000b030    0000000a     utils.obj (.text:_Z11Disable_Intv)
+                  0000b03a    0000000a     bsp.obj (.text:_system_pre_init)
+                  0000b044    0000000a     nwk_join.obj (.text:generateLinkToken)
+                  0000b04e    0000000a     nwk_ping.obj (.text:nwk_pingInit)
+                  0000b058    00000008     nwk_api.obj (.text:SMPL_Send)
+                  0000b060    00000008     rts430_eabi.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
+                  0000b068    00000008     nwk_mgmt.obj (.text:nwk_resetSFMarker)
+                  0000b070    00000006     mrfi.obj (.text:MRFI_GetRadioState)
+                  0000b076    00000006     utils.obj (.text:_Z11Restore_Intt)
+                  0000b07c    00000006     rts430_eabi.lib : exit.obj (.text:abort)
+                  0000b082    00000006     nwk.obj (.text:nwk_freeConnection)
+                  0000b088    00000006     nwk_globals.obj (.text:nwk_getBCastAddress)
+                  0000b08e    00000006     nwk_globals.obj (.text:nwk_getFWVersion)
+                  0000b094    00000006     nwk_frame.obj (.text:nwk_getMyRxType)
+                  0000b09a    00000006     nwk_globals.obj (.text:nwk_getProtocolVersion)
+                  0000b0a0    00000006     nwk.obj (.text:nwk_getSFInfoPtr)
+                  0000b0a6    00000004     nwk_join.obj (.text:nwk_join)
+                  0000b0aa    00000004     nwk_freq.obj (.text:nwk_processFreq)
+                  0000b0ae    00000004     nwk_security.obj (.text:nwk_processSecurity)
+                  0000b0b2    00000002     rts430_eabi.lib : startup.obj (.text:_system_post_cinit)
+                  0000b0b4    00000002     nwk_freq.obj (.text:nwk_freqInit)
+                  0000b0b6    00000002     nwk_security.obj (.text:nwk_securityInit)
+
+.const     0    0000b0b8    0000005d     
+                  0000b0b8    0000003c     mrfi.obj (.const:mrfiRadioCfg)
+                  0000b0f4    0000000c     nwk_frame.obj (.const:func)
+                  0000b100    00000005     nwk_globals.obj (.const:sVersionInfo)
+                  0000b105    00000001     --HOLE-- [fill = 0]
+                  0000b106    00000004     mrfi.obj (.const:.string:mrfiBroadcastAddr)
+                  0000b10a    00000004     mrfi.obj (.const:.string:mrfiLogicalChanTable)
+                  0000b10e    00000004     nwk_globals.obj (.const:sMyROMAddress)
+                  0000b112    00000003     mrfi.obj (.const:.string:mrfiRFPowerTable)
+
+.cinit     0    0000b11a    00000024     
+                  0000b11a    00000012     (.cinit..data.load) [load image, compression = lzss]
+                  0000b12c    00000006     (__TI_handler_table)
+                  0000b132    00000004     (.cinit..bss.load) [load image, compression = zero_init]
+                  0000b136    00000008     (__TI_cinit_table)
+
+.binit     0    00008000    00000000     
+
+.init_array 
+*          0    0000b116    00000004     
+                  0000b116    00000002     UART_HANDLER.obj (.init_array)
+                  0000b118    00000002     main_AP_Async_TalkandListen_.obj (.init_array)
+
+PORT1      0    0000ffe4    00000002     
+                  0000ffe4    00000002     rts430_eabi.lib : int02.obj (.int02)
+
+PORT2      0    0000ffe6    00000002     
+                  0000ffe6    00000002     mrfi.obj (.int03)
+
+ADC10      0    0000ffea    00000002     
+                  0000ffea    00000002     rts430_eabi.lib : int05.obj (.int05)
+
+USCIAB0TX 
+*          0    0000ffec    00000002     
+                  0000ffec    00000002     UART_HANDLER.obj (.int06)
+
+USCIAB0RX 
+*          0    0000ffee    00000002     
+                  0000ffee    00000002     UART_HANDLER.obj (.int07)
+
+TIMERA1    0    0000fff0    00000002     
+                  0000fff0    00000002     rts430_eabi.lib : int08.obj (.int08)
+
+TIMERA0    0    0000fff2    00000002     
+                  0000fff2    00000002     main_AP_Async_TalkandListen_.obj (.int09)
+
+WDT        0    0000fff4    00000002     
+                  0000fff4    00000002     rts430_eabi.lib : int10.obj (.int10)
+
+TIMERB1    0    0000fff8    00000002     
+                  0000fff8    00000002     rts430_eabi.lib : int12.obj (.int12)
+
+TIMERB0    0    0000fffa    00000002     
+                  0000fffa    00000002     rts430_eabi.lib : int13.obj (.int13)
+
+NMI        0    0000fffc    00000002     
+                  0000fffc    00000002     rts430_eabi.lib : int14.obj (.int14)
+
+.reset     0    0000fffe    00000002     
+                  0000fffe    00000002     rts430_eabi.lib : boot.obj (.reset)
+
+$fill000   0    0000ffde    00000002     
+                  0000ffde    00000002     --HOLE-- [fill = ffff]
+
+MODULE SUMMARY
+
+       Module                             code    ro data   rw data
+       ------                             ----    -------   -------
+    ./Applications/application/Access Point/
+       main_AP_Async_TalkandListen_.obj   694     4         75     
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             694     4         75     
+                                                                   
+    ./Components/bsp/
+       bsp.obj                            142     0         1      
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             142     0         1      
+                                                                   
+    ./Components/mrfi/
+       mrfi.obj                           2094    73        77     
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             2094    73        77     
+                                                                   
+    ./Components/simpliciti/nwk/
+       nwk_frame.obj                      1308    12        8      
+       nwk.obj                            1124    0         43     
+       nwk_QMgmt.obj                      598     0         528    
+       nwk_api.obj                        610     0         1      
+       nwk_globals.obj                    102     9         9      
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             3742    21        589    
+                                                                   
+    ./Components/simpliciti/nwk_applications/
+       nwk_link.obj                       672     0         9      
+       nwk_join.obj                       506     0         11     
+       nwk_ioctl.obj                      366     0         0      
+       nwk_mgmt.obj                       262     0         4      
+       nwk_ping.obj                       140     0         1      
+       nwk_freq.obj                       6       0         0      
+       nwk_security.obj                   6       0         0      
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             1958    0         25     
+                                                                   
+    ./utils/
+       UART_HANDLER.obj                   484     6         156    
+       utils.obj                          16      0         0      
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             500     6         156    
+                                                                   
+    /Applications/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.0.LTS/lib/rts430_eabi.lib
+       addd.obj                           744     0         0      
+       frcaddd.obj                        608     0         0      
+       fs_add.obj                         306     0         0      
+       renormd.obj                        190     0         0      
+       cvtdf.obj                          140     0         0      
+       copy_decompress_lzss.obj           124     0         0      
+       cvtfd.obj                          114     0         0      
+       autoinit.obj                       110     0         0      
+       lsr32.obj                          110     0         0      
+       cpy_tbl.obj                        90      0         0      
+       div32u.obj                         88      0         0      
+       asr32.obj                          78      0         0      
+       lsl32.obj                          78      0         0      
+       lsr16.obj                          76      0         0      
+       fs_cmp.obj                         74      0         0      
+       asr16.obj                          44      0         0      
+       div16s.obj                         44      0         0      
+       lsl16.obj                          44      0         0      
+       mult32.obj                         38      0         0      
+       memcmp.obj                         34      0         0      
+       memmov.obj                         32      0         0      
+       boot_special.obj                   26      0         0      
+       div16u.obj                         22      0         0      
+       copy_zero_init.obj                 20      0         0      
+       memset.obj                         20      0         0      
+       mult16.obj                         20      0         0      
+       copy_decompress_none.obj           18      0         0      
+       memcpy.obj                         18      0         0      
+       epilog.obj                         16      0         0      
+       isr_trap.obj                       8       0         0      
+       exit.obj                           6       0         0      
+       boot.obj                           0       2         0      
+       int02.obj                          0       2         0      
+       int05.obj                          0       2         0      
+       int08.obj                          0       2         0      
+       int10.obj                          0       2         0      
+       int12.obj                          0       2         0      
+       int13.obj                          0       2         0      
+       int14.obj                          0       2         0      
+       startup.obj                        2       0         0      
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             3342    16        0      
+                                                                   
+       Stack:                             0       0         80     
+       Linker Generated:                  0       36        0      
+    +--+----------------------------------+-------+---------+---------+
+       Grand Total:                       12472   156       1003   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 0000b136 records: 2, size/record: 4, table size: 8
+	.data: load addr=0000b11a, load size=00000012 bytes, run addr=00000532, run size=00000069 bytes, compression=lzss
+	.bss: load addr=0000b132, load size=00000004 bytes, run addr=00000200, run size=00000332 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0000b12c records: 3, size/record: 2, table size: 6
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_lzss
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                            
+-------   ----                                            
+0000004a  ADC10AE0                                        
+0000004b  ADC10AE1                                        
+000001b0  ADC10CTL0                                       
+000001b2  ADC10CTL1                                       
+00000048  ADC10DTC0                                       
+00000049  ADC10DTC1                                       
+000001b4  ADC10MEM                                        
+000001bc  ADC10SA                                         
+00000057  BCSCTL1                                         
+00000058  BCSCTL2                                         
+00000053  BCSCTL3                                         
+0000acae  BSP_Delay                                       
+0000ad5c  BSP_GpioPort1Isr                                
+0000ac0e  BSP_Init                                        
+0000ac2e  BSP_InitBoard                                   
+0000b01c  BSP_InitButtons                                 
+0000b026  BSP_InitDrivers                                 
+0000aed6  BSP_InitLeds                                    
+0000b07c  C$$EXIT                                         
+000010fb  CALBC1_12MHZ                                    
+000010f9  CALBC1_16MHZ                                    
+000010ff  CALBC1_1MHZ                                     
+000010fd  CALBC1_8MHZ                                     
+000010fa  CALDCO_12MHZ                                    
+000010f8  CALDCO_16MHZ                                    
+000010fe  CALDCO_1MHZ                                     
+000010fc  CALDCO_8MHZ                                     
+00000056  DCOCTL                                          
+00000128  FCTL1                                           
+0000012a  FCTL2                                           
+0000012c  FCTL3                                           
+00000000  IE1                                             
+00000001  IE2                                             
+00000002  IFG1                                            
+00000003  IFG2                                            
+0000adaa  MRFI_DelayMs                                    
+0000b070  MRFI_GetRadioState                              
+0000ad08  MRFI_GpioIsr                                    
+00008548  MRFI_Init                                       
+0000afec  MRFI_PostKillSem                                
+0000adf2  MRFI_RandomByte                                 
+0000afa6  MRFI_Receive                                    
+0000a286  MRFI_Rssi                                       
+0000a1fa  MRFI_RxAddrIsFiltered                           
+0000ac4e  MRFI_RxCompleteISR                              
+0000ac6e  MRFI_RxIdle                                     
+0000abca  MRFI_RxOn                                       
+0000a780  MRFI_SetLogicalChannel                          
+0000a6e4  MRFI_SetRFPwr                                   
+0000aae6  MRFI_Sleep                                      
+00008f5e  MRFI_Transmit                                   
+00009f94  MRFI_WakeUp                                     
+000000c0  OA0CTL0                                         
+000000c1  OA0CTL1                                         
+000000c2  OA1CTL0                                         
+000000c3  OA1CTL1                                         
+00000022  P1DIR                                           
+00000025  P1IE                                            
+00000024  P1IES                                           
+00000023  P1IFG                                           
+00000020  P1IN                                            
+00000021  P1OUT                                           
+00000027  P1REN                                           
+00000026  P1SEL                                           
+0000002a  P2DIR                                           
+0000002d  P2IE                                            
+0000002c  P2IES                                           
+0000002b  P2IFG                                           
+00000028  P2IN                                            
+00000029  P2OUT                                           
+0000002f  P2REN                                           
+0000002e  P2SEL                                           
+0000001a  P3DIR                                           
+00000018  P3IN                                            
+00000019  P3OUT                                           
+00000010  P3REN                                           
+0000001b  P3SEL                                           
+0000001e  P4DIR                                           
+0000001c  P4IN                                            
+0000001d  P4OUT                                           
+00000011  P4REN                                           
+0000001f  P4SEL                                           
+00000450  RX_ser_buf                                      
+0000a988  SMPL_Init                                       
+00009396  SMPL_Ioctl                                      
+00009bac  SMPL_LinkListen                                 
+0000a03c  SMPL_Receive                                    
+0000b058  SMPL_Send                                       
+000096ee  SMPL_SendOpt                                    
+00000172  TACCR0                                          
+00000174  TACCR1                                          
+00000176  TACCR2                                          
+00000162  TACCTL0                                         
+00000164  TACCTL1                                         
+00000166  TACCTL2                                         
+00000160  TACTL                                           
+0000012e  TAIV                                            
+00000170  TAR                                             
+00000192  TBCCR0                                          
+00000194  TBCCR1                                          
+00000196  TBCCR2                                          
+00000182  TBCCTL0                                         
+00000184  TBCCTL1                                         
+00000186  TBCCTL2                                         
+00000180  TBCTL                                           
+0000011e  TBIV                                            
+00000190  TBR                                             
+0000051e  TX_Time_msg                                     
+000004c8  TX_msg                                          
+00000570  TX_msg_Len                                      
+0000048c  TX_ser_buf                                      
+000004fa  UART_RX_BUFFER                                  
+0000050c  UART_TX_BUFFER                                  
+0000005d  UCA0ABCTL                                       
+00000062  UCA0BR0                                         
+00000063  UCA0BR1                                         
+00000060  UCA0CTL0                                        
+00000061  UCA0CTL1                                        
+0000005f  UCA0IRRCTL                                      
+0000005e  UCA0IRTCTL                                      
+00000064  UCA0MCTL                                        
+00000066  UCA0RXBUF                                       
+00000065  UCA0STAT                                        
+00000067  UCA0TXBUF                                       
+0000006a  UCB0BR0                                         
+0000006b  UCB0BR1                                         
+00000068  UCB0CTL0                                        
+00000069  UCB0CTL1                                        
+0000006c  UCB0I2CIE                                       
+00000118  UCB0I2COA                                       
+0000011a  UCB0I2CSA                                       
+0000006e  UCB0RXBUF                                       
+0000006d  UCB0STAT                                        
+0000006f  UCB0TXBUF                                       
+00000120  WDTCTL                                          
+0000a352  _Z10ParseRXCmdi                                 
+0000b030  _Z11Disable_Intv                                
+0000b076  _Z11Restore_Intt                                
+00009f3e  _Z11TIMERA0_ISRv                                
+0000a8d4  _Z13USCIAB0RX_ISRv                              
+0000a5c6  _Z13USCIAB0TX_ISRv                              
+0000a2ca  _Z17tx_bytes_to_slavePhi                        
+0000ae4a  _Z9InitTimerv                                   
+00009d02  _Z9Init_UARTv                                   
+0000ae5e  _Z9toggleLEDh                                   
+00000600  __STACK_END                                     
+00000050  __STACK_SIZE                                    
+UNDEFED   __TI_BINIT_Base                                 
+UNDEFED   __TI_BINIT_Limit                                
+0000b136  __TI_CINIT_Base                                 
+0000b13e  __TI_CINIT_Limit                                
+0000b12c  __TI_Handler_Table_Base                         
+0000b132  __TI_Handler_Table_Limit                        
+0000b116  __TI_INITARRAY_Base                             
+0000b11a  __TI_INITARRAY_Limit                            
+0000b060  __TI_ISR_TRAP                                   
+00009a38  __TI_decompress_lzss                            
+0000aefa  __TI_decompress_none                            
+000082e8  __TI_frcaddd                                    
+0000ffe4  __TI_int02                                      
+0000ffe6  __TI_int03                                      
+0000ffea  __TI_int05                                      
+0000ffec  __TI_int06                                      
+0000ffee  __TI_int07                                      
+0000fff0  __TI_int08                                      
+0000fff2  __TI_int09                                      
+0000fff4  __TI_int10                                      
+0000fff8  __TI_int12                                      
+0000fffa  __TI_int13                                      
+0000fffc  __TI_int14                                      
+ffffffff  __TI_pprof_out_hndl                             
+ffffffff  __TI_prof_data_size                             
+ffffffff  __TI_prof_data_start                            
+000092d8  __TI_renormd                                    
+0000ae72  __TI_zero_init                                  
+ffffffff  __c_args__                                      
+00008000  __mspabi_addd                                   
+00008d24  __mspabi_addf                                   
+0000a168  __mspabi_cmpf                                   
+0000981c  __mspabi_cvtdf                                  
+00009c22  __mspabi_cvtfd                                  
+0000aa64  __mspabi_divi                                   
+0000ae34  __mspabi_divu                                   
+00009ee6  __mspabi_divul                                  
+0000afa2  __mspabi_func_epilog_1                          
+0000afa0  __mspabi_func_epilog_2                          
+0000af9e  __mspabi_func_epilog_3                          
+0000af9c  __mspabi_func_epilog_4                          
+0000af9a  __mspabi_func_epilog_5                          
+0000af98  __mspabi_func_epilog_6                          
+0000af96  __mspabi_func_epilog_7                          
+0000aec2  __mspabi_mpyi                                   
+0000aec2  __mspabi_mpyi_sw                                
+0000aba4  __mspabi_mpyl                                   
+0000aba4  __mspabi_mpyl_sw                                
+0000aa64  __mspabi_remi                                   
+0000ae34  __mspabi_remu                                   
+00009ee6  __mspabi_remul                                  
+0000aa90  __mspabi_slli                                   
+0000aab8  __mspabi_slli_1                                 
+0000aaa6  __mspabi_slli_10                                
+0000aaa4  __mspabi_slli_11                                
+0000aaa2  __mspabi_slli_12                                
+0000aaa0  __mspabi_slli_13                                
+0000aa9e  __mspabi_slli_14                                
+0000aa9c  __mspabi_slli_15                                
+0000aab6  __mspabi_slli_2                                 
+0000aab4  __mspabi_slli_3                                 
+0000aab2  __mspabi_slli_4                                 
+0000aab0  __mspabi_slli_5                                 
+0000aaae  __mspabi_slli_6                                 
+0000aaac  __mspabi_slli_7                                 
+0000aaaa  __mspabi_slli_8                                 
+0000aaa8  __mspabi_slli_9                                 
+0000af76  __mspabi_slll                                   
+0000a508  __mspabi_slll_1                                 
+0000a4e4  __mspabi_slll_10                                
+0000a4e0  __mspabi_slll_11                                
+0000a4dc  __mspabi_slll_12                                
+0000a4d8  __mspabi_slll_13                                
+0000a4d4  __mspabi_slll_14                                
+0000a4d0  __mspabi_slll_15                                
+0000a504  __mspabi_slll_2                                 
+0000a500  __mspabi_slll_3                                 
+0000a4fc  __mspabi_slll_4                                 
+0000a4f8  __mspabi_slll_5                                 
+0000a4f4  __mspabi_slll_6                                 
+0000a4f0  __mspabi_slll_7                                 
+0000a4ec  __mspabi_slll_8                                 
+0000a4e8  __mspabi_slll_9                                 
+0000aa38  __mspabi_srai                                   
+0000aa60  __mspabi_srai_1                                 
+0000aa4e  __mspabi_srai_10                                
+0000aa4c  __mspabi_srai_11                                
+0000aa4a  __mspabi_srai_12                                
+0000aa48  __mspabi_srai_13                                
+0000aa46  __mspabi_srai_14                                
+0000aa44  __mspabi_srai_15                                
+0000aa5e  __mspabi_srai_2                                 
+0000aa5c  __mspabi_srai_3                                 
+0000aa5a  __mspabi_srai_4                                 
+0000aa58  __mspabi_srai_5                                 
+0000aa56  __mspabi_srai_6                                 
+0000aa54  __mspabi_srai_7                                 
+0000aa52  __mspabi_srai_8                                 
+0000aa50  __mspabi_srai_9                                 
+0000af66  __mspabi_sral                                   
+0000a4ca  __mspabi_sral_1                                 
+0000a4a6  __mspabi_sral_10                                
+0000a4a2  __mspabi_sral_11                                
+0000a49e  __mspabi_sral_12                                
+0000a49a  __mspabi_sral_13                                
+0000a496  __mspabi_sral_14                                
+0000a492  __mspabi_sral_15                                
+0000a4c6  __mspabi_sral_2                                 
+0000a4c2  __mspabi_sral_3                                 
+0000a4be  __mspabi_sral_4                                 
+0000a4ba  __mspabi_sral_5                                 
+0000a4b6  __mspabi_sral_6                                 
+0000a4b2  __mspabi_sral_7                                 
+0000a4ae  __mspabi_sral_8                                 
+0000a4aa  __mspabi_sral_9                                 
+0000a088  __mspabi_srli                                   
+0000a0ce  __mspabi_srli_1                                 
+0000a0aa  __mspabi_srli_10                                
+0000a0a6  __mspabi_srli_11                                
+0000a0a2  __mspabi_srli_12                                
+0000a09e  __mspabi_srli_13                                
+0000a09a  __mspabi_srli_14                                
+0000a096  __mspabi_srli_15                                
+0000a0ca  __mspabi_srli_2                                 
+0000a0c6  __mspabi_srli_3                                 
+0000a0c2  __mspabi_srli_4                                 
+0000a0be  __mspabi_srli_5                                 
+0000a0ba  __mspabi_srli_6                                 
+0000a0b6  __mspabi_srli_7                                 
+0000a0b2  __mspabi_srli_8                                 
+0000a0ae  __mspabi_srli_9                                 
+0000af0c  __mspabi_srll                                   
+00009e84  __mspabi_srll_1                                 
+00009e4e  __mspabi_srll_10                                
+00009e48  __mspabi_srll_11                                
+00009e42  __mspabi_srll_12                                
+00009e3c  __mspabi_srll_13                                
+00009e36  __mspabi_srll_14                                
+00009e30  __mspabi_srll_15                                
+00009e7e  __mspabi_srll_2                                 
+00009e78  __mspabi_srll_3                                 
+00009e72  __mspabi_srll_4                                 
+00009e6c  __mspabi_srll_5                                 
+00009e66  __mspabi_srll_6                                 
+00009e60  __mspabi_srll_7                                 
+00009e5a  __mspabi_srll_8                                 
+00009e54  __mspabi_srll_9                                 
+00008d1e  __mspabi_subf                                   
+0000913a  __sti___16_UART_HANDLER_cpp_3daaade3            
+0000ad24  __sti___32_main_AP_Async_TalkandListen__cpp_time
+00009c94  _auto_init                                      
+0000ad76  _c_int00_noargs_noexit                          
+0000fffe  _reset_vector                                   
+000005b0  _stack                                          
+0000b0b2  _system_post_cinit                              
+0000b03a  _system_pre_init                                
+0000b07c  abort                                           
+00009e8c  copy_in                                         
+000095b0  isDupSandFFrame                                 
+0000058d  lAddr                                           
+0000870e  main                                            
+0000abec  memcmp                                          
+0000af1e  memcpy                                          
+0000ac8e  memmove                                         
+0000ae9a  memset                                          
+0000b106  mrfiBroadcastAddr                               
+0000a0d4  mrfiSpiCmdStrobe                                
+0000a718  mrfiSpiInit                                     
+0000accc  mrfiSpiReadReg                                  
+0000b004  mrfiSpiReadRxFifo                               
+0000ad90  mrfiSpiWriteReg                                 
+0000afb4  mrfiSpiWriteTxFifo                              
+00000524  next_time_Jam                                   
+0000acea  nwk_QInit                                       
+0000a6ae  nwk_QadjustOrder                                
+00008a64  nwk_QfindOldest                                 
+000098a8  nwk_QfindSlot                                   
+00009504  nwk_SendEmptyPollRspFrame                       
+0000920c  nwk_allocateLocalRxPort                         
+00009650  nwk_buildFrame                                  
+0000aa0c  nwk_checkAppMsgTID                              
+0000aabc  nwk_checkConnInfo                               
+0000ab32  nwk_connectionControl                           
+0000a74c  nwk_deviceAddress                               
+0000a394  nwk_findAlreadyJoined                           
+0000ab58  nwk_frameInit                                   
+0000b082  nwk_freeConnection                              
+0000b0b4  nwk_freqInit                                    
+0000b088  nwk_getBCastAddress                             
+0000a7b2  nwk_getConnInfo                                 
+0000b08e  nwk_getFWVersion                                
+0000af30  nwk_getLinkToken                                
+0000a50e  nwk_getLocalLinkID                              
+0000af42  nwk_getMyAddress                                
+0000b094  nwk_getMyRxType                                 
+0000a11e  nwk_getNextConnection                           
+0000afc2  nwk_getNumObjectFromMsg                         
+0000b09a  nwk_getProtocolVersion                          
+0000af86  nwk_getQ                                        
+0000b0a0  nwk_getSFInfoPtr                                
+00009ab4  nwk_getSandFFrame                               
+0000ab7e  nwk_globalsInit                                 
+00009d68  nwk_isConnectionValid                           
+0000a3d4  nwk_isLinkDuplicate                             
+0000a414  nwk_isSandFClient                               
+0000a600  nwk_isValidReply                                
+0000b0a6  nwk_join                                        
+0000aeae  nwk_joinContext                                 
+0000a63a  nwk_joinInit                                    
+0000a7e4  nwk_linkInit                                    
+0000adda  nwk_mgmtInit                                    
+000099b4  nwk_nwkInit                                     
+0000b04e  nwk_pingInit                                    
+0000b0aa  nwk_processFreq                                 
+0000a54c  nwk_processJoin                                 
+0000a902  nwk_processLink                                 
+0000a1b2  nwk_processMgmt                                 
+0000a816  nwk_processPing                                 
+0000b0ae  nwk_processSecurity                             
+0000a58a  nwk_putNumObjectIntoMsg                         
+00009b30  nwk_radioControl                                
+0000a846  nwk_rawReceive                                  
+00009fe8  nwk_rawSend                                     
+0000a674  nwk_replayFrame                                 
+0000b068  nwk_resetSFMarker                               
+00009452  nwk_retrieveFrame                               
+00009dcc  nwk_saveJoinedDevice                            
+0000b0b6  nwk_securityInit                                
+0000a876  nwk_sendFrame                                   
+0000afd0  nwk_setJoinContext                              
+0000af54  nwk_setLinkToken                                
+0000afde  nwk_setListenContext                            
+0000ad40  nwk_setMyAddress                                
+0000056c  time                                            
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                            
+-------   ----                                            
+00000000  IE1                                             
+00000001  IE2                                             
+00000002  IFG1                                            
+00000003  IFG2                                            
+00000010  P3REN                                           
+00000011  P4REN                                           
+00000018  P3IN                                            
+00000019  P3OUT                                           
+0000001a  P3DIR                                           
+0000001b  P3SEL                                           
+0000001c  P4IN                                            
+0000001d  P4OUT                                           
+0000001e  P4DIR                                           
+0000001f  P4SEL                                           
+00000020  P1IN                                            
+00000021  P1OUT                                           
+00000022  P1DIR                                           
+00000023  P1IFG                                           
+00000024  P1IES                                           
+00000025  P1IE                                            
+00000026  P1SEL                                           
+00000027  P1REN                                           
+00000028  P2IN                                            
+00000029  P2OUT                                           
+0000002a  P2DIR                                           
+0000002b  P2IFG                                           
+0000002c  P2IES                                           
+0000002d  P2IE                                            
+0000002e  P2SEL                                           
+0000002f  P2REN                                           
+00000048  ADC10DTC0                                       
+00000049  ADC10DTC1                                       
+0000004a  ADC10AE0                                        
+0000004b  ADC10AE1                                        
+00000050  __STACK_SIZE                                    
+00000053  BCSCTL3                                         
+00000056  DCOCTL                                          
+00000057  BCSCTL1                                         
+00000058  BCSCTL2                                         
+0000005d  UCA0ABCTL                                       
+0000005e  UCA0IRTCTL                                      
+0000005f  UCA0IRRCTL                                      
+00000060  UCA0CTL0                                        
+00000061  UCA0CTL1                                        
+00000062  UCA0BR0                                         
+00000063  UCA0BR1                                         
+00000064  UCA0MCTL                                        
+00000065  UCA0STAT                                        
+00000066  UCA0RXBUF                                       
+00000067  UCA0TXBUF                                       
+00000068  UCB0CTL0                                        
+00000069  UCB0CTL1                                        
+0000006a  UCB0BR0                                         
+0000006b  UCB0BR1                                         
+0000006c  UCB0I2CIE                                       
+0000006d  UCB0STAT                                        
+0000006e  UCB0RXBUF                                       
+0000006f  UCB0TXBUF                                       
+000000c0  OA0CTL0                                         
+000000c1  OA0CTL1                                         
+000000c2  OA1CTL0                                         
+000000c3  OA1CTL1                                         
+00000118  UCB0I2COA                                       
+0000011a  UCB0I2CSA                                       
+0000011e  TBIV                                            
+00000120  WDTCTL                                          
+00000128  FCTL1                                           
+0000012a  FCTL2                                           
+0000012c  FCTL3                                           
+0000012e  TAIV                                            
+00000160  TACTL                                           
+00000162  TACCTL0                                         
+00000164  TACCTL1                                         
+00000166  TACCTL2                                         
+00000170  TAR                                             
+00000172  TACCR0                                          
+00000174  TACCR1                                          
+00000176  TACCR2                                          
+00000180  TBCTL                                           
+00000182  TBCCTL0                                         
+00000184  TBCCTL1                                         
+00000186  TBCCTL2                                         
+00000190  TBR                                             
+00000192  TBCCR0                                          
+00000194  TBCCR1                                          
+00000196  TBCCR2                                          
+000001b0  ADC10CTL0                                       
+000001b2  ADC10CTL1                                       
+000001b4  ADC10MEM                                        
+000001bc  ADC10SA                                         
+00000450  RX_ser_buf                                      
+0000048c  TX_ser_buf                                      
+000004c8  TX_msg                                          
+000004fa  UART_RX_BUFFER                                  
+0000050c  UART_TX_BUFFER                                  
+0000051e  TX_Time_msg                                     
+00000524  next_time_Jam                                   
+0000056c  time                                            
+00000570  TX_msg_Len                                      
+0000058d  lAddr                                           
+000005b0  _stack                                          
+00000600  __STACK_END                                     
+000010f8  CALDCO_16MHZ                                    
+000010f9  CALBC1_16MHZ                                    
+000010fa  CALDCO_12MHZ                                    
+000010fb  CALBC1_12MHZ                                    
+000010fc  CALDCO_8MHZ                                     
+000010fd  CALBC1_8MHZ                                     
+000010fe  CALDCO_1MHZ                                     
+000010ff  CALBC1_1MHZ                                     
+00008000  __mspabi_addd                                   
+000082e8  __TI_frcaddd                                    
+00008548  MRFI_Init                                       
+0000870e  main                                            
+00008a64  nwk_QfindOldest                                 
+00008d1e  __mspabi_subf                                   
+00008d24  __mspabi_addf                                   
+00008f5e  MRFI_Transmit                                   
+0000913a  __sti___16_UART_HANDLER_cpp_3daaade3            
+0000920c  nwk_allocateLocalRxPort                         
+000092d8  __TI_renormd                                    
+00009396  SMPL_Ioctl                                      
+00009452  nwk_retrieveFrame                               
+00009504  nwk_SendEmptyPollRspFrame                       
+000095b0  isDupSandFFrame                                 
+00009650  nwk_buildFrame                                  
+000096ee  SMPL_SendOpt                                    
+0000981c  __mspabi_cvtdf                                  
+000098a8  nwk_QfindSlot                                   
+000099b4  nwk_nwkInit                                     
+00009a38  __TI_decompress_lzss                            
+00009ab4  nwk_getSandFFrame                               
+00009b30  nwk_radioControl                                
+00009bac  SMPL_LinkListen                                 
+00009c22  __mspabi_cvtfd                                  
+00009c94  _auto_init                                      
+00009d02  _Z9Init_UARTv                                   
+00009d68  nwk_isConnectionValid                           
+00009dcc  nwk_saveJoinedDevice                            
+00009e30  __mspabi_srll_15                                
+00009e36  __mspabi_srll_14                                
+00009e3c  __mspabi_srll_13                                
+00009e42  __mspabi_srll_12                                
+00009e48  __mspabi_srll_11                                
+00009e4e  __mspabi_srll_10                                
+00009e54  __mspabi_srll_9                                 
+00009e5a  __mspabi_srll_8                                 
+00009e60  __mspabi_srll_7                                 
+00009e66  __mspabi_srll_6                                 
+00009e6c  __mspabi_srll_5                                 
+00009e72  __mspabi_srll_4                                 
+00009e78  __mspabi_srll_3                                 
+00009e7e  __mspabi_srll_2                                 
+00009e84  __mspabi_srll_1                                 
+00009e8c  copy_in                                         
+00009ee6  __mspabi_divul                                  
+00009ee6  __mspabi_remul                                  
+00009f3e  _Z11TIMERA0_ISRv                                
+00009f94  MRFI_WakeUp                                     
+00009fe8  nwk_rawSend                                     
+0000a03c  SMPL_Receive                                    
+0000a088  __mspabi_srli                                   
+0000a096  __mspabi_srli_15                                
+0000a09a  __mspabi_srli_14                                
+0000a09e  __mspabi_srli_13                                
+0000a0a2  __mspabi_srli_12                                
+0000a0a6  __mspabi_srli_11                                
+0000a0aa  __mspabi_srli_10                                
+0000a0ae  __mspabi_srli_9                                 
+0000a0b2  __mspabi_srli_8                                 
+0000a0b6  __mspabi_srli_7                                 
+0000a0ba  __mspabi_srli_6                                 
+0000a0be  __mspabi_srli_5                                 
+0000a0c2  __mspabi_srli_4                                 
+0000a0c6  __mspabi_srli_3                                 
+0000a0ca  __mspabi_srli_2                                 
+0000a0ce  __mspabi_srli_1                                 
+0000a0d4  mrfiSpiCmdStrobe                                
+0000a11e  nwk_getNextConnection                           
+0000a168  __mspabi_cmpf                                   
+0000a1b2  nwk_processMgmt                                 
+0000a1fa  MRFI_RxAddrIsFiltered                           
+0000a286  MRFI_Rssi                                       
+0000a2ca  _Z17tx_bytes_to_slavePhi                        
+0000a352  _Z10ParseRXCmdi                                 
+0000a394  nwk_findAlreadyJoined                           
+0000a3d4  nwk_isLinkDuplicate                             
+0000a414  nwk_isSandFClient                               
+0000a492  __mspabi_sral_15                                
+0000a496  __mspabi_sral_14                                
+0000a49a  __mspabi_sral_13                                
+0000a49e  __mspabi_sral_12                                
+0000a4a2  __mspabi_sral_11                                
+0000a4a6  __mspabi_sral_10                                
+0000a4aa  __mspabi_sral_9                                 
+0000a4ae  __mspabi_sral_8                                 
+0000a4b2  __mspabi_sral_7                                 
+0000a4b6  __mspabi_sral_6                                 
+0000a4ba  __mspabi_sral_5                                 
+0000a4be  __mspabi_sral_4                                 
+0000a4c2  __mspabi_sral_3                                 
+0000a4c6  __mspabi_sral_2                                 
+0000a4ca  __mspabi_sral_1                                 
+0000a4d0  __mspabi_slll_15                                
+0000a4d4  __mspabi_slll_14                                
+0000a4d8  __mspabi_slll_13                                
+0000a4dc  __mspabi_slll_12                                
+0000a4e0  __mspabi_slll_11                                
+0000a4e4  __mspabi_slll_10                                
+0000a4e8  __mspabi_slll_9                                 
+0000a4ec  __mspabi_slll_8                                 
+0000a4f0  __mspabi_slll_7                                 
+0000a4f4  __mspabi_slll_6                                 
+0000a4f8  __mspabi_slll_5                                 
+0000a4fc  __mspabi_slll_4                                 
+0000a500  __mspabi_slll_3                                 
+0000a504  __mspabi_slll_2                                 
+0000a508  __mspabi_slll_1                                 
+0000a50e  nwk_getLocalLinkID                              
+0000a54c  nwk_processJoin                                 
+0000a58a  nwk_putNumObjectIntoMsg                         
+0000a5c6  _Z13USCIAB0TX_ISRv                              
+0000a600  nwk_isValidReply                                
+0000a63a  nwk_joinInit                                    
+0000a674  nwk_replayFrame                                 
+0000a6ae  nwk_QadjustOrder                                
+0000a6e4  MRFI_SetRFPwr                                   
+0000a718  mrfiSpiInit                                     
+0000a74c  nwk_deviceAddress                               
+0000a780  MRFI_SetLogicalChannel                          
+0000a7b2  nwk_getConnInfo                                 
+0000a7e4  nwk_linkInit                                    
+0000a816  nwk_processPing                                 
+0000a846  nwk_rawReceive                                  
+0000a876  nwk_sendFrame                                   
+0000a8d4  _Z13USCIAB0RX_ISRv                              
+0000a902  nwk_processLink                                 
+0000a988  SMPL_Init                                       
+0000aa0c  nwk_checkAppMsgTID                              
+0000aa38  __mspabi_srai                                   
+0000aa44  __mspabi_srai_15                                
+0000aa46  __mspabi_srai_14                                
+0000aa48  __mspabi_srai_13                                
+0000aa4a  __mspabi_srai_12                                
+0000aa4c  __mspabi_srai_11                                
+0000aa4e  __mspabi_srai_10                                
+0000aa50  __mspabi_srai_9                                 
+0000aa52  __mspabi_srai_8                                 
+0000aa54  __mspabi_srai_7                                 
+0000aa56  __mspabi_srai_6                                 
+0000aa58  __mspabi_srai_5                                 
+0000aa5a  __mspabi_srai_4                                 
+0000aa5c  __mspabi_srai_3                                 
+0000aa5e  __mspabi_srai_2                                 
+0000aa60  __mspabi_srai_1                                 
+0000aa64  __mspabi_divi                                   
+0000aa64  __mspabi_remi                                   
+0000aa90  __mspabi_slli                                   
+0000aa9c  __mspabi_slli_15                                
+0000aa9e  __mspabi_slli_14                                
+0000aaa0  __mspabi_slli_13                                
+0000aaa2  __mspabi_slli_12                                
+0000aaa4  __mspabi_slli_11                                
+0000aaa6  __mspabi_slli_10                                
+0000aaa8  __mspabi_slli_9                                 
+0000aaaa  __mspabi_slli_8                                 
+0000aaac  __mspabi_slli_7                                 
+0000aaae  __mspabi_slli_6                                 
+0000aab0  __mspabi_slli_5                                 
+0000aab2  __mspabi_slli_4                                 
+0000aab4  __mspabi_slli_3                                 
+0000aab6  __mspabi_slli_2                                 
+0000aab8  __mspabi_slli_1                                 
+0000aabc  nwk_checkConnInfo                               
+0000aae6  MRFI_Sleep                                      
+0000ab32  nwk_connectionControl                           
+0000ab58  nwk_frameInit                                   
+0000ab7e  nwk_globalsInit                                 
+0000aba4  __mspabi_mpyl                                   
+0000aba4  __mspabi_mpyl_sw                                
+0000abca  MRFI_RxOn                                       
+0000abec  memcmp                                          
+0000ac0e  BSP_Init                                        
+0000ac2e  BSP_InitBoard                                   
+0000ac4e  MRFI_RxCompleteISR                              
+0000ac6e  MRFI_RxIdle                                     
+0000ac8e  memmove                                         
+0000acae  BSP_Delay                                       
+0000accc  mrfiSpiReadReg                                  
+0000acea  nwk_QInit                                       
+0000ad08  MRFI_GpioIsr                                    
+0000ad24  __sti___32_main_AP_Async_TalkandListen__cpp_time
+0000ad40  nwk_setMyAddress                                
+0000ad5c  BSP_GpioPort1Isr                                
+0000ad76  _c_int00_noargs_noexit                          
+0000ad90  mrfiSpiWriteReg                                 
+0000adaa  MRFI_DelayMs                                    
+0000adda  nwk_mgmtInit                                    
+0000adf2  MRFI_RandomByte                                 
+0000ae34  __mspabi_divu                                   
+0000ae34  __mspabi_remu                                   
+0000ae4a  _Z9InitTimerv                                   
+0000ae5e  _Z9toggleLEDh                                   
+0000ae72  __TI_zero_init                                  
+0000ae9a  memset                                          
+0000aeae  nwk_joinContext                                 
+0000aec2  __mspabi_mpyi                                   
+0000aec2  __mspabi_mpyi_sw                                
+0000aed6  BSP_InitLeds                                    
+0000aefa  __TI_decompress_none                            
+0000af0c  __mspabi_srll                                   
+0000af1e  memcpy                                          
+0000af30  nwk_getLinkToken                                
+0000af42  nwk_getMyAddress                                
+0000af54  nwk_setLinkToken                                
+0000af66  __mspabi_sral                                   
+0000af76  __mspabi_slll                                   
+0000af86  nwk_getQ                                        
+0000af96  __mspabi_func_epilog_7                          
+0000af98  __mspabi_func_epilog_6                          
+0000af9a  __mspabi_func_epilog_5                          
+0000af9c  __mspabi_func_epilog_4                          
+0000af9e  __mspabi_func_epilog_3                          
+0000afa0  __mspabi_func_epilog_2                          
+0000afa2  __mspabi_func_epilog_1                          
+0000afa6  MRFI_Receive                                    
+0000afb4  mrfiSpiWriteTxFifo                              
+0000afc2  nwk_getNumObjectFromMsg                         
+0000afd0  nwk_setJoinContext                              
+0000afde  nwk_setListenContext                            
+0000afec  MRFI_PostKillSem                                
+0000b004  mrfiSpiReadRxFifo                               
+0000b01c  BSP_InitButtons                                 
+0000b026  BSP_InitDrivers                                 
+0000b030  _Z11Disable_Intv                                
+0000b03a  _system_pre_init                                
+0000b04e  nwk_pingInit                                    
+0000b058  SMPL_Send                                       
+0000b060  __TI_ISR_TRAP                                   
+0000b068  nwk_resetSFMarker                               
+0000b070  MRFI_GetRadioState                              
+0000b076  _Z11Restore_Intt                                
+0000b07c  C$$EXIT                                         
+0000b07c  abort                                           
+0000b082  nwk_freeConnection                              
+0000b088  nwk_getBCastAddress                             
+0000b08e  nwk_getFWVersion                                
+0000b094  nwk_getMyRxType                                 
+0000b09a  nwk_getProtocolVersion                          
+0000b0a0  nwk_getSFInfoPtr                                
+0000b0a6  nwk_join                                        
+0000b0aa  nwk_processFreq                                 
+0000b0ae  nwk_processSecurity                             
+0000b0b2  _system_post_cinit                              
+0000b0b4  nwk_freqInit                                    
+0000b0b6  nwk_securityInit                                
+0000b106  mrfiBroadcastAddr                               
+0000b116  __TI_INITARRAY_Base                             
+0000b11a  __TI_INITARRAY_Limit                            
+0000b12c  __TI_Handler_Table_Base                         
+0000b132  __TI_Handler_Table_Limit                        
+0000b136  __TI_CINIT_Base                                 
+0000b13e  __TI_CINIT_Limit                                
+0000ffe4  __TI_int02                                      
+0000ffe6  __TI_int03                                      
+0000ffea  __TI_int05                                      
+0000ffec  __TI_int06                                      
+0000ffee  __TI_int07                                      
+0000fff0  __TI_int08                                      
+0000fff2  __TI_int09                                      
+0000fff4  __TI_int10                                      
+0000fff8  __TI_int12                                      
+0000fffa  __TI_int13                                      
+0000fffc  __TI_int14                                      
+0000fffe  _reset_vector                                   
+ffffffff  __TI_pprof_out_hndl                             
+ffffffff  __TI_prof_data_size                             
+ffffffff  __TI_prof_data_start                            
+ffffffff  __c_args__                                      
+UNDEFED   __TI_BINIT_Base                                 
+UNDEFED   __TI_BINIT_Limit                                
+
+[381 symbols]
