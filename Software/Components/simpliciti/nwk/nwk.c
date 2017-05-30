@@ -19,7 +19,7 @@
   you may not use, reproduce, copy, prepare derivative works of, modify, distribute,
   perform, display or sell this Software and/or its documentation for any purpose.
 
-  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE PROVIDED ï¿½AS ISï¿½
+  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE PROVIDED “AS IS”
   WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY
   WARRANTY OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
   IN NO EVENT SHALL TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -114,12 +114,12 @@
 /******************************************************************************
  * TYPEDEFS
  */
-/* This structure aggregates everything necessary to save if we want to restore
+/* This structure aggregates eveything necessary to save if we want to restore
  * the connection information later.
  */
 typedef struct
 {
-  const uint8_t    structureVersion; /* to detect upgrades... */
+  const uint8_t    structureVersion; /* to dectect upgrades... */
         uint8_t    numConnections;   /* count includes the UUD port/link ID */
 /* The next two are used to detect overlapping port assignments. When _sending_ a
  * link frame the local port is assigned from the top down. When sending a _reply_
@@ -165,7 +165,7 @@ static void    initializeConnection(connInfo_t *);
 /******************************************************************************
  * @fn          nwk_nwkInit
  *
- * @brief       Initialize NWK context.
+ * @brief       Initialize NWK conext.
  *
  * input parameters
  *

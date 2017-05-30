@@ -112,7 +112,7 @@ PDE_DEPS__QUOTED :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 . \
-Applications/application/End\ Device \
+Application/application/End\ Device \
 Components/bsp \
 Components/mrfi \
 Components/simpliciti/nwk \
